@@ -1,0 +1,43 @@
+<div class="pageContent">
+	<form action="${BASE_PATH}/security/resource/update" data-toggle="validate">
+	<input type="hidden" name="resource.id" id="id" value="${resource.id}" />
+		<div class="pageFormContent" layoutH="57">
+			<dl>
+				<dt>资源名:</dt>
+				<dd>
+					<input id="resourceName" data-rule="required" name="resource.name"
+						type="text" size="30" value="${(resource.name)!}" />
+				</dd>
+			</dl>
+			<dl class="nowrap">
+				<dt>资源值:</dt>
+				<dd>
+					<input id="resourceSource" type="text" data-rule="required" 
+						name="resource.source" size="60" value="${(resource.source)!}" />
+				</dd>
+			</dl>
+			<dl class="nowrap">
+				<dt>菜单名称:</dt>
+				<!--  
+				<dd>
+					<label>PID:</label><input type="text" name="pid" size="5"/>
+						<label>查找名称：</label><input type="text" data-toggle="lookup" 
+						data-url="${BASE_PATH}/security/menu?lookup=2" name="name"  size="10" />
+				</dd>
+				-->
+				<dd><input type="hidden" value="${(resource.menuId)!0}" name="parentid"  class="doc_lookup form-control" size="5"/></dd>  
+				<dd><input  readonly type="text" data-toggle="lookup" data-url="${BASE_PATH}/security/menu?lookup=2" value="${(resource.menuName)!''}" name="parentname" class="doc_lookup form-control" size="10"></dd>				
+				
+			</dl>
+
+		</div>
+		<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+        <li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+    </ul>
+</div>
+	</form>
+
+
+</div>

@@ -1,0 +1,285 @@
+<script>
+function pic_upload_success_edit(file, data) {
+    var json = $.parseJSON(data)
+    $(this).bjuiajax('ajaxDone', json)
+    if (json[BJUI.keys.statusCode] == BJUI.statusCode.ok) {
+    	var val =  '<input type="hidden" name="goods.pictures" value="'+json.tabid+'">';
+        $('#goods_pic_edit').append('<span><img src="${BASE_PATH}/'+ json.tabid +'" width="200" />'+val+'<input type="button" value="删" onclick="delImg(this);"/></span>')
+    }
+}
+function cover_upload_success_edit(file, data) {
+    var json = $.parseJSON(data)
+    $(this).bjuiajax('ajaxDone', json)
+    if (json[BJUI.keys.statusCode] == BJUI.statusCode.ok) {
+        $('#goods_cover_edit').val(json.tabid).trigger('validate')
+        $('#goods_cover_pic_edit').html('<img src="${BASE_PATH}/'+ json.tabid +'" width="200" />')
+    }
+}
+function delImg(obj){
+	if(confirm("确定删掉改图片？")){
+		$($(obj).parent()).remove();
+	}
+}
+</script>
+<div class="bjui-pageContent">
+<form id="goods_add_form" method="post" action="${BASE_PATH}/fish/goods/update" data-toggle="validate" >
+<input type="hidden" name="goods.id" value="${goods.id}"/>
+	<table class="table table-condensed table-hover" width="100%">
+		<tbody>
+			<tr>
+            	<td>
+            		<label class="control-label x100">商品分类</label>
+            		<input data-rule="required" class="input-nm" readonly type="text" size="30" value="${goods.catParentName}&nbsp;→&nbsp;${goods.catName}"/>
+            	</td>
+            </tr>
+            <tr>
+            	<td>
+	                <label class="control-label x100">商品名称</label>
+	                <input data-rule="required" class="input-nm" name="goods.title" type="text" size="30" value="${goods.title}"/>
+           		</td>
+            </tr>
+            
+            <tr>
+            	<td>
+	                <label class="control-label x100">商品价格范围</label>
+	                <input data-rule="required" class="input-nm" name="goods.priceRange" type="text" size="30" value="${goods.priceRange}"/>
+            	</td>
+            </tr>
+             <tr>
+            	<td>
+	                <label class="control-label x100">商品状态</label>
+                	<input data-rule="required" type="radio"  name="goods.status" value="0" size="30" data-rule="checked" data-toggle="icheck" data-label="正常" <#if goods.status==0>checked</#if>/>
+                 	<input data-rule="required" type="radio"  name="goods.status" value="1" size="30" data-rule="checked" data-toggle="icheck" data-label="缺货" <#if goods.status==1>checked</#if>/>
+                    <input data-rule="required" type="radio"  name="goods.status" value="2" size="30" data-rule="checked" data-toggle="icheck" data-label="下架" <#if goods.status==2>checked</#if>/>
+           		</td>
+            </tr>
+              <tr>
+            	<td>
+	                <label class="control-label x100">是否质量保证</label>
+                	<input data-rule="required" type="radio"  name="goods.qualityassurance" value="1" size="30" data-rule="checked" data-toggle="icheck" data-label="是" <#if goods.qualityassurance>checked</#if>/>
+                    <input data-rule="required" type="radio"  name="goods.qualityassurance" value="0" size="30" data-rule="checked" data-toggle="icheck" data-label="否" <#if !goods.qualityassurance>checked</#if>/>
+           		</td>
+            </tr>
+              <tr>
+            	<td>
+	                <label class="control-label x100">是否七天包换</label>
+                 	<input data-rule="required" type="radio"  name="goods.replacement" value="1" size="30" data-rule="checked" data-toggle="icheck" data-label="是" <#if goods.replacement>checked</#if>/>
+                    <input data-rule="required" type="radio"  name="goods.replacement" value="0" size="30" data-rule="checked" data-toggle="icheck" data-label="否" <#if !goods.replacement>checked</#if>/>
+           		</td>
+            </tr>
+			<tr>
+            	<td>
+	                <label class="control-label x100">赠送富币</label>
+                	<input data-rule="required" class="input-nm" name="goods.give" type="text" size="30" value="${goods.give}"/>
+            	</td>
+            </tr>
+            <tr>
+            	<td>
+	                <label class="control-label x100">快递费用</label>
+                	<input data-rule="required" class="input-nm" name="goods.expressfee" type="text" size="30" value="${goods.expressfee}"/>
+            	</td>
+            </tr>
+            <tr>
+            	<td>
+	                <label class="control-label x100">商品封面</label>
+                	<div style="display: inline-block; vertical-align: middle;">
+                     	<div id="j_custom_pic_up" data-toggle="upload" data-uploader="${BASE_PATH}/file/upload/newsUpload" 
+                                data-file-size-limit="1024000000"
+                                data-file-type-exts="*.jpg;*.png;*.gif;*.mpg"
+                                data-file-obj-name="filedata" 
+                                data-multi="false"
+                                data-on-upload-success="cover_upload_success_edit"
+                                data-icon="cloud-upload"></div>
+                 	</div>
+                 	<div id="goods_cover_pic_edit"><img src="${BASE_PATH}/${goods.cover}" width="200"/></div>
+                 	<input type="hidden" id="goods_cover_edit" name="goods.cover" value="${goods.cover}">
+                </td>
+            </tr>
+            <tr>
+            	<td>
+	                <label class="control-label x100">商品图片</label>
+                 	<div style="display: inline-block; vertical-align: middle;">
+                     	<div id="j_custom_pic_up" data-toggle="upload" data-uploader="${BASE_PATH}/file/upload/newsUpload" 
+                                data-file-size-limit="1024000000"
+                                data-file-type-exts="*.jpg;*.png;*.gif;*.mpg"
+                                data-multi="true"
+                                data-file-obj-name="filedata"
+                                data-on-upload-success="pic_upload_success_edit"
+                                data-icon="cloud-upload"></div>
+                        <div id="goods_pic_edit">
+	                        <#list pics as pic>
+	                        	<span>
+	                        		<img src="${BASE_PATH}/${pic.pic}" width="200"/>
+	                        		<input type="hidden" value="${pic.pic}" name="goods.pictures">
+	                        		<input type="button" value="删" onclick="delImg(this);">
+	                        	</span>
+	                        </#list>
+                        </div>
+                 	</div>
+                </td>
+            </tr>
+            <tr>
+	            <td  class="goodsAttr">
+	            	<label class="control-label x100">关键属性</label>
+	            	<span id="keyt_edit">
+	            	<#list keyt as k>
+	            	<span>${k.name}：</span>
+	            	<#list k.value as val>
+	            	<input name="keytAttrId${k_index}" <#if val.checked??>checked</#if> type="checkbox" data-rule="checked" value="${val.id}" label="${val.value}" onclick="createTable(this);">${val.value}
+	            	</#list>
+	            	<#if k_has_next>
+	            	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	            	</#if>
+	            	</#list>
+	            	</span>
+	            </td>
+            </tr>
+            <tr>
+            	<td id="keytTable_edit" <#if !keytList??>style="display:none;"</#if>>
+            	<table class="table table-hover" data-width="100%">
+            	<tr id="attrHead">
+            	<#if (keytList?size>0)>
+            	<#if keytList.get(0).paramsName1??>
+            	<th>${keytList.get(0).paramsName1}</th>
+            	</#if>
+            	<#if keytList.get(0).paramsName2??>
+            	<th>${keytList.get(0).paramsName2}</th>
+            	</#if>
+            	</#if>
+            	<th>库存：<input type="text" id="ctrlRemainEdit" onkeyup="ctrl_remain_edit(this.value);" size="14"/></th>
+            	<th>价格：<input type="text" id="ctrlPriceEdit" onkeyup="ctrl_price_edit(this.value);" size="14"/></th>
+            	</tr>
+            	<#if (keytList?size>0)>
+            	<#list keytList as keyt>
+            	<tr>
+            	<#if keyt.paramsVal1??>
+            	<td><input type="hidden" name="pvId_1" value="${keyt.pvId_1}"/>${keyt.paramsVal1}</td>
+            	</#if>
+            	<#if keyt.paramsVal2??>
+            	<td><input type="hidden" name="pvId_2" value="${keyt.pvId_2}"/>${keyt.paramsVal2}</td>
+            	</#if>
+            	<td><input type="text" name="totalCountEdit"  onkeyup="special_remain_edit(this.value)" value="${keyt.remain}"/></td>
+            	<td><input type="text" name="priceEdit"  onkeyup="special_price_edit(this.value)" value="${keyt.price}"/></td>
+            	</tr>
+            	</#list>
+            	</#if>
+            	</table>
+            	</td>
+            </tr>
+             <tr>
+	            <td class="goodsAttr" style="display:none;">
+	            	<label class="control-label x100">非关键属性</label>
+	            	<span id="nonkeyt_edit"></span>
+	            </td>
+            </tr>
+             <tr>
+            	<td id="nonkeytTable_edit"  <#if !nonkeytList??>style="display:none;"</#if>>
+            		<table class="table" data-toggle="tabledit" data-single-noindex="true">
+    				<thead>
+			     		<tr style="height:40px;text-align:left;">
+ 		     			<th title="&nbsp;"width="1%">
+					      		<input type="hidden" name="nonkeyt.ids" value="0" size="0">
+					      	</th>
+					      	<th title="排序" width="20%" >
+					      		<input type="text" name="nonkeyt.displayorder" class="no" data-rule="required" value="1" size="1">
+					      	</th>
+					      	<th title="属性名称 " width="20%" >
+					      		<input type="text" name="nonkeyt.names" data-rule="required" value="" size="50" />
+					      	</th>
+					      	<th title="属性值" width="20%" >
+					      		<input type="text" name="nonkeyt.values" data-rule="required" value="" size="1">
+					      	</th>
+					      	<th title="操作" width="20%" data-addtool="true">
+			                	<a href="javascript:;" class="btn btn-green" data-toggle="dosave">保存</a>
+			                	<a href="${BASE_PATH}/B-JUI/ajaxDone2.html" class="btn btn-red row-del">删</a>
+			                </th>		           	
+			      		</tr>
+					</thead>
+					<tbody>
+						<#if nonkeytList??>
+							<#list nonkeytList as nonkeyt>
+							<tr>
+								<td>${nonkeyt.paramsId}</td>
+								<td>${nonkeyt.displayorder}</td>
+								<td>${nonkeyt.name}</td>
+								<td>${nonkeyt.value}</td>
+								<td>
+								<#if nonkeyt.paramsId==0>
+								<a href="javascript:;" class="btn btn-green" data-toggle="dosave">保存</a>
+			                	<a href="${BASE_PATH}/B-JUI/ajaxDone2.html" class="btn btn-red row-del">删</a>
+								</#if>
+								</td>
+							</tr>
+							</#list>
+							</#if>
+					</tbody>
+					</table>
+            	</td>
+            </tr>
+         </tbody>
+		</table>
+     <div class="divider"></div>
+     </form>
+   </div>
+ <div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+        <li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+    </ul>
+</div>
+<script>
+/**
+ * 选择属性 生成table
+ */
+var attrLength = ${keyt?size};
+var attrHead = "<tr>"+$("#attrHead").html()+"</tr>";
+function createTable(obj){
+	var ketAttr0 = $("input[name=keytAttrId0]:checked");
+	var ketAttr1 = $("input[name=keytAttrId1]:checked");
+	$("#keytTable_edit table").html("");
+	console.log(ketAttr0);
+	console.log(ketAttr1);
+	var all = '<td><input type="text" name="totalCountEdit" onkeyup="special_remain_edit(this.value)" data-rule="required"/></td><td><input type="text" name="priceEdit" onkeyup="special_price_edit(this.value)" data-rule="required"/></td>';
+	var html = '';
+	if(attrLength==2&&ketAttr0.length>0 && ketAttr1.length>0){
+		$(ketAttr0).each(function(key,val){
+			$(ketAttr1).each(function(k,v){
+				html += '<tr><td><input type="hidden" name="pvId_1" value="'+$(val).attr("value")+'"/>'+$(val).attr("label")+'</td>'+'<td><input type="hidden" name="pvId_2" value="'+$(v).attr("value")+'"/>'+$(v).attr("label")+'</td>'+all;
+			}); 
+		});
+		$("#keytTable_edit table").append(attrHead+html+'<tr>');
+	}else if(attrLength==1&&ketAttr0.length>0){
+		$(ketAttr0).each(function(key,val){
+			html += '<tr><td><input type="hidden" name="pvId_1" value="'+$(val).attr("value")+'"/>'+$(val).attr("label")+'</td>'+all;
+		});
+		$("#keytTable_edit table").append(attrHead+html+'<tr>');
+	}
+}
+
+
+function ctrl_remain_edit(remain){
+	var ketAttr = $("input[name=totalCountEdit]");
+	$(ketAttr).each(function(k,v){
+		$(v).val(remain);
+	});	
+}
+
+function ctrl_price_edit(price){
+	var ketAttr = $("input[name=priceEdit]");
+	$(ketAttr).each(function(k,v){
+		$(v).val(price);
+	});	
+}
+
+function special_remain_edit(remain){
+	if($("#ctrlRemainEdit").val()!=remain){
+		$("#ctrlRemainEdit").val("");
+	}
+}
+
+function special_price_edit(price){
+	if($("#ctrlPriceEdit").val()!=price){
+		$("#ctrlPriceEdit").val("");
+	}
+}
+</script>

@@ -1,0 +1,98 @@
+<div class="bjui-pageHeader">
+    <form id="pagerForm" data-toggle="ajaxsearch" action="${BASE_PATH}/fish/goods" method="post">
+        <input type="hidden" name="pageSize" value="${(page.pageSize)!''}">
+        <input type="hidden" name="pageCurrent" value="${(page.pageCurrent)!''}">
+        <div class="bjui-searchBar">
+            <label for="goods_title">商品标题：</label>
+            <input type="text" id="goods_title" name="title" class="form-control" size="10" value="${(title)!''}"/>&nbsp;
+            <button type="submit" class="btn btn-blue" data-icon="search">查询</button>&nbsp;
+            <a class="btn btn-orange" href="javascript:;" onclick="$(this).navtab('reloadForm', true);" data-icon="undo">清空查询</a>
+            <a href="${BASE_PATH}/fish/goods/add" class="btn btn-orange" data-toggle="navtab" data-id="goodsAdd" data-title="商品添加" data-icon="plus">添加</a>
+            <a class="btn btn-green" href="javascript:;" onclick="$(this).navtab('reloadForm', false);" data-icon="refresh">刷新</a>
+        </div>
+    </form>
+</div>
+<div class="bjui-pageContent tableContent">
+    <table data-toggle="tablefixed" data-width="100%" data-nowrap="true" id="tablelist;">
+        <thead>
+            <tr>
+            	<th>序号</th>
+            	<th>商家名称</th>
+				<th>商品标题</th>
+				<th>商品分类</th>
+				<th>商品状态</th>
+				<th>销量</th>
+				<th>价格范围</th>
+				<th>快递费用</th>
+				<th>库存剩余量</th>
+				<th>赠送富币数</th>
+				<th>是否品质保证</th>
+				<th>是否七天包换</th>
+				<th>是否通过审核</th>
+				<th>发布时间</th>				
+                <th width="170">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+			<#list page.getList() as goods>
+			<tr>
+				<td>${goods_index+1}</td>
+				<td>${goods.shopName}</td>
+				<td>${goods.title}</td>
+				<td>${(goods.pcatName)!}&nbsp;→&nbsp;${(goods.catName)!}</td>
+				<#if goods.status == 0>
+				<td style="color:green">正常</td>
+				<#elseif goods.status == 1>
+				<td style="color:red">缺货</td>
+				<#elseif goods.status == 2>
+				<td>下架</td>
+				</#if>
+				<td>${goods.selled}</td>
+				<td>${goods.priceRange}</td>
+				<td>${goods.expressfee}</td>
+				<td>${goods.remain}</td>
+				<td>${goods.give}</td>
+				<td>
+					<#if goods.qualityassurance>✔
+					<#else>✘
+					</#if>
+				</td>
+				<td>
+					<#if goods.replacement>✔
+					<#else>✘
+					</#if>
+				</td>
+				<td>
+					<#if goods.enable == 1>✔
+					<#elseif goods.enable == 2>✘
+					<#elseif goods.enable == 0>待审核
+					</#if>
+				</td>
+				<td>${goods.dateline}</td>
+                <td>
+                	<a href="${BASE_PATH}/fish/goods/view/${goods.id}" class="btn btn-orange" data-toggle="navtab" data-id="goodsView" data-title="商品预览">预览</a>
+             		<a href="${BASE_PATH}/fish/goods/delete/${goods.id}" class="btn btn-red" data-toggle="doajax" data-confirm-msg="确定删除当前商品？">删除</a>
+             		<a href="${BASE_PATH}/fish/goods/edit/${goods.id}" class="btn btn-green" data-toggle="navtab" data-id="goodsEdit" data-title="商品编辑">编辑</a>
+             	</td>
+            </tr>
+           </#list>
+            
+        </tbody>
+    </table>
+</div>
+<div class="bjui-pageFooter">
+    <div class="pages">
+        <span>每页&nbsp;</span>
+        <div class="selectPagesize">
+            <select data-toggle="selectpicker" data-toggle-change="changepagesize">
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="120">120</option>
+                <option value="150">150</option>
+            </select>
+        </div>
+        <span>&nbsp;条，共 ${page.totalRow} 条</span>
+    </div>
+    <div class="pagination-box" data-toggle="pagination" data-total="${page.totalRow}" data-page-size="${page.pageSize}" data-page-current="${page.pageNumber}">
+    </div>
+    </div>

@@ -1,0 +1,29 @@
+<style>
+#hover td{height:40px;line-height:40px;}
+</style>
+<form method="post" action="${BASE_PATH}/fish/fubi/type/save" data-toggle="validate" >
+<div class="bjui-pageContent">
+	<table class="table table-condensed table-hover" width="100%" id="hover">
+    		<tr>		
+	    		<td>
+	    			<label for="j_username" class="t">类型名称：</label>
+	    			<input type="text" name="name" id="j_custom_birthday"  data-toggle="dialog" data-rule="required;" size="15">
+	    		</td>
+	    	</tr>
+	    	<tr>		
+	    		<td>
+	    		<label for="j_username" class="t">增加点数：</label>
+	    		<input type="text" name="point" id="j_custom_birthday"  data-toggle="dialog" data-rule="required;" size="15">
+	    		
+	    		</td>
+	    	</tr>
+    </table>
+ </div>
+ <div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+        <li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+    </ul>
+</div>
+
+</form>

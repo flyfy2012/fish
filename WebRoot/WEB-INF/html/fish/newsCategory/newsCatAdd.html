@@ -1,0 +1,29 @@
+<style>
+#hover3 td{height:40px;line-height:40px;}
+</style>
+<form method="post" action="${BASE_PATH}/fish/newsCategory/save" data-toggle="validate" >
+<div class="bjui-pageContent">
+	<div class="bjui-pageContent">
+		<table class="table table-condensed table-hover" width="100%" id="hover3">
+    		<tr>		
+	    		<td>
+	    			<label for="j_username" class="t">排序：</label>
+	    			<input data-rule="required"  name="NewsCategory.displayorder" type="text" size="30" />
+	    		</td>
+	    	</tr>
+	    	<tr>		
+	    		<td>
+	    			<label for="j_username" class="t">名称：</label>
+	    			<input data-rule="required"  name="NewsCategory.catname" type="text" size="30"  />
+	    		</td>
+	    	</tr>
+	    </table>
+ 	</div>
+ 	<div class="bjui-pageFooter">
+	    <ul>
+	        <li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+	        <li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+	    </ul>
+	</div>
+
+</form>

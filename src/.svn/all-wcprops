@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/swust_fish/!svn/ver/630/swust_fish/src
+END
+message_ja.properties
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/swust_fish/!svn/ver/3/swust_fish/src/message_ja.properties
+END
+job.properties
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/swust_fish/!svn/ver/3/swust_fish/src/job.properties
+END
+message_zh_HK.properties
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/swust_fish/!svn/ver/3/swust_fish/src/message_zh_HK.properties
+END
+message_en_US.properties
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/swust_fish/!svn/ver/3/swust_fish/src/message_en_US.properties
+END
+message_zh_TW.properties
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/swust_fish/!svn/ver/3/swust_fish/src/message_zh_TW.properties
+END
+jfinal.properties
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/swust_fish/!svn/ver/608/swust_fish/src/jfinal.properties
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/swust_fish/!svn/ver/3/swust_fish/src/log4j.properties
+END
+ehcache.xml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/swust_fish/!svn/ver/121/swust_fish/src/ehcache.xml
+END
+schedule.properties
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/swust_fish/!svn/ver/3/swust_fish/src/schedule.properties
+END
+ehcache-shiro.xml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/swust_fish/!svn/ver/3/swust_fish/src/ehcache-shiro.xml
+END
+jfaker-shiro.ini
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/swust_fish/!svn/ver/630/swust_fish/src/jfaker-shiro.ini
+END
+message_zh_CN.properties
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/swust_fish/!svn/ver/3/swust_fish/src/message_zh_CN.properties
+END

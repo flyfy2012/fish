@@ -1,0 +1,36 @@
+<style>
+ #cond td{height:40px;line-height:40px;}
+</style>
+
+<div class="bjui-pageContent">
+	<form action="${BASE_PATH}/fish/fubi/limitgoods/update" id="splash_add_form" data-toggle="validate">
+		<input type="hidden" name="limitGoods" value="${(goods.goodsId)!}"/>
+		<input type="hidden" name="limitTime" value="${(goods.limitedId)!}"/>
+		<table class="table table-condensed table-hover" width="100%" id="cond">
+    		<tr>		
+	    		<td>
+	    			<label for="j_username" class="t">参加时间段：</label>
+	    			<span>${(goods.startTime)!}--${(goods.endTime)!}</span>
+	    		</td>
+    		</tr>
+    		<tr>
+	    		<td>
+	    			<label for="j_username" class="t">参加商品：</label>
+	    			<span>${(goods.title)!}</span>
+	    		</td>
+    		</tr>
+    		<tr>		   
+				<td> 特惠商品总量:<input type="text" name="totalcount" value=${(goods.totalCount)}> </td>
+			</tr>
+			<tr>
+				<td> 限时特惠价格:<input type="text" name="limitedprice" value=${(goods.limitedPrice)}> </td>
+			</tr>			
+		</table>
+	</form>
+</div>
+<div class="bjui-pageFooter">
+	<ul>
+		<li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+		<li><button type="submit"  class="btn-default" data-icon="save">保存</button></li>
+	</ul>
+</div>

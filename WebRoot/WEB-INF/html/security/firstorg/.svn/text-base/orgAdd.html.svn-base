@@ -1,0 +1,26 @@
+<form method="post" action="${BASE_PATH}/security/firstorg/save"data-toggle="validate">
+	<div class="bjui-pageContent tableContent">	
+		<div class="bjui-pageFormContent">
+			<dl>
+				<dt>排序：</dt>
+				<dd><input data-rule="required" name="org.displayorder" type="text" size="30"/></dd>
+			</dl>		
+			<dl>
+				<dt>部门名称：</dt>
+				<dd><input data-rule="required" name="org.name" type="text" size="30" /></dd>
+			</dl>
+			<div class="divider"></div>
+			<dl>
+				<dt>描述：</dt>
+				<dd><textarea cols="45" rows="5" name="org.description" ></textarea></dd>
+			</dl>
+		</div>
+	</div>
+	<div class="bjui-pageFooter">
+	    <ul>
+	        <li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+	        <li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+	    </ul>
+	</div>
+</form>
+

@@ -1,0 +1,155 @@
+<div class="bjui-pageContent">
+	<div class="goods-preview">
+		<p>
+		<span>发布时间：${goods.dateline}</span>
+		<span>商品状态：<#if goods.status == 0>正常<#elseif goods.status == 1>缺货<#elseif goods.status == 2>下架</#if></span>
+		<span>是否通过审核：<#if goods.enable == 1>✔<#elseif goods.enable == 2>✘<#elseif goods.enable == 0>待审核</#if></span>
+		<span>类别：${goods.catParentName}-${goods.catName}</span>
+		</p>
+		
+
+
+		<#if (keytList?size>0)>
+		<!-- 详细商品列表： -->
+		<table class="table table-hover table-bordered" data-width="50%">
+			<tr>
+				<#if keytList.get(0).paramsName1??>
+				<th>${keytList.get(0).paramsName1}</th>
+				</#if>
+				<#if keytList.get(0).paramsName2??>
+				<th>${keytList.get(0).paramsName2}</th>
+				</#if>
+		       	<th>库存(件)</th>
+		       	<th>价格(元)</th>
+			</tr>
+			<#list keytList as keyt>
+			<tr>
+				<#if keyt.paramsVal1??>
+		    	<td>${keyt.paramsVal1}</td>
+		    	</#if>
+		    	<#if keyt.paramsVal2??>
+		    	<td>${keyt.paramsVal2}</td>
+		    	</#if>
+		    	<td>${keyt.remain}</td>
+		    	<td>${keyt.price}</td>
+		    </tr>
+		    </#list>
+		</table>
+		</#if> 
+
+		<div style="margin-top:40px;"></div>
+		<p style="font-size:18px;width:650px;margin:0 auto;">移动端预览效果:</p>
+				<script type="text/javascript">
+
+                    $(document).ready(function(){
+
+                        $(".main_image").touchSlider({
+
+                            flexible : true,
+
+                            speed : 200,
+
+                            btn_prev : $("#btn_prev"),
+
+                            btn_next : $("#btn_next"),
+
+                            paging : $(".flicking_con a"),
+
+                            counter : function (e){
+
+                                $(".flicking_con a").removeClass("on").eq(e.current-1).addClass("on");
+                            }
+
+                        });
+
+
+                        $(".main_image").bind("mousedown", function() {
+                            $dragBln = false;
+                        });
+
+
+                        $(".main_image").bind("dragstart", function() {
+                            $dragBln = true;
+                        });
+
+
+                        $(".main_image a").click(function(){
+                            if($dragBln) {
+                                return false;
+                            }
+                        });
+
+
+                        timer = setInterval(function(){
+                            $("#btn_next").click();
+                        }, 5000);
+
+                        
+
+                        $(".ele_banner").hover(function(){
+                            clearInterval(timer);
+                        },function(){
+                            timer = setInterval(function(){
+                                $("#btn_next").click();
+                            },5000);
+                        });
+
+                        
+                        $(".main_image").bind("touchstart",function(){
+                            clearInterval(timer);
+                        }).bind("touchend", function(){
+                            timer = setInterval(function(){
+                                $("#btn_next").click();
+                            }, 5000);
+                        });
+
+                    });
+                </script>
+			<div style="width:650px;margin:0 auto;border:1px solid #ccc;">
+                 <div class="ele_banner" style="width:650px;">
+                    <div class="flicking_con">
+                    <a href="#"></a>
+                    <#list pics as pic>
+                       <a href="#"></a>
+                    </#list>
+                    </div>
+                 	<div class="main_image" style="width:650px;">
+                        <ul>
+		                    <li>
+							<img src="${BASE_PATH}/${goods.cover}"/> 	
+		                    </li>
+							<#list pics as pic>
+							<li>
+							<img src="${BASE_PATH}/${pic.pic}"/>
+							</li>
+							</#list>	
+                        </ul>
+                 	</div>
+                    <a href="javascript:;" id="btn_prev"></a>
+            		<a href="javascript:;" id="btn_next"></a>
+                 </div>
+				 <h2>${goods.title}</h2> 
+				 <p><span class="price">￥${goods.priceRange}</span></p>
+				 <p style="border-bottom:1px solid #ccc;padding-bottom:10px;"><span style="font-size:16px;padding:5px 10px;">快递：￥${goods.expressfee}</span></p>
+				 <p>
+					<#if goods.replacement><span class="gou">7天退换</span></#if>
+					<#if goods.qualityassurance><span class="gou">品质保证</span></#if>
+					<#if (goods.give>0)><span class="song">${goods.give}富币</span></#if>
+				 </p>
+				 <p style="border-bottom:10px solid #ccc;margin-top:50px;"></p>
+				 <table class="table table-hover product-para" >
+				 <#if nonkeytList??>
+				    <tr><h3>产品参数</h3></tr>
+					<#list nonkeytList as nonkeyt>
+					<tr>
+		    		<td width="20%">${nonkeyt.name}:</td>
+		    		<td width="80%">${nonkeyt.value}</td>
+		    	    </tr>
+		    	    </#list>
+		         </#if>
+				</table>
+		
+			</div>
+			
+	</div>
+</div>

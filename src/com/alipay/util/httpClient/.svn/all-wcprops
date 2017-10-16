@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/swust_fish/!svn/ver/225/swust_fish/src/com/alipay/util/httpClient
+END
+HttpResultType.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/swust_fish/!svn/ver/225/swust_fish/src/com/alipay/util/httpClient/HttpResultType.java
+END
+HttpProtocolHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/swust_fish/!svn/ver/225/swust_fish/src/com/alipay/util/httpClient/HttpProtocolHandler.java
+END
+HttpResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/swust_fish/!svn/ver/225/swust_fish/src/com/alipay/util/httpClient/HttpResponse.java
+END
+HttpRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/swust_fish/!svn/ver/225/swust_fish/src/com/alipay/util/httpClient/HttpRequest.java
+END

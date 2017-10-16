@@ -1,0 +1,44 @@
+<style>
+#hover td{height:40px;line-height:40px;}
+</style>
+<div class="bjui-pageContent">
+	<form action="${BASE_PATH}/fish/fubi/seckillgoods/save" id="splash_add_form" data-toggle="validate">
+		<table class="table table-condensed table-hover" width="100%" id="hover">
+    		<tr>		
+	    		<td>
+	    			<label for="j_username" class="t">选择整点秒杀时间：</label>
+	    			<select name="seckillTime" id="j_news" >
+	    				<option value=0>请选择</option>
+	    				<#list time as times>
+	    					<option value="${times.id}">${times.time}</option>
+	    				</#list>
+	    			</select>
+	    		</td>
+    		</tr>
+    		<tr>
+	    		<td>
+	    			<label for="j_username" class="t">选择参加商品：</label>
+	    			<select name="seckillGoods" id="j_news" >
+	    				<option value=0>请选择</option>
+	    				<#list goods as good>
+	    					<option value="${good.id}">${good.title}</option>
+	    				</#list>
+	    			</select>
+	    		</td>
+    		</tr>		   
+            <tr>
+				<td> 整点秒杀商品总量:<input type="text" name="totalcount"> </td>
+			</tr>
+			<tr>
+				<td> 整点秒杀价格:<input type="text" name="seckillprice"> </td>
+			</tr>			
+			</tbody>
+		</table>
+	</form>
+</div>
+<div class="bjui-pageFooter">
+	<ul>
+		<li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+		<li><button type="submit"  class="btn-default" data-icon="save">保存</button></li>
+	</ul>
+</div>

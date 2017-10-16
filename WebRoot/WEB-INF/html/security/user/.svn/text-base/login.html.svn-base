@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>管理登录</title>
+<script src="${BASE_PATH}/B-JUI/BJUI/js/jquery-1.7.2.min.js"></script>
+<link href="${BASE_PATH}/B-JUI/BJUI/themes/css/bootstrap.min.css" rel="stylesheet">
+<link href="${BASE_PATH}/B-JUI/BJUI/themes/css/fish.css" rel="stylesheet">
+<style type="text/css">
+::-webkit-input-placeholder { /* WebKit browsers */ 
+color: #fff; 
+} 
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+color: #fff; 
+} 
+::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+color: #fff; 
+} 
+:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+color: #fff; 
+} 
+
+* {font-family: "Verdana", "Tahoma", "Lucida Grande", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;}
+body {
+    background: url(${BASE_PATH}/B-JUI/images/bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background-color:transparent !important;
+    background-image: none !important;
+    color:#fff !important;
+}
+.login_box .form-control::-webkit-input-placeholder { /* WebKit browsers */ 
+color: #fff; 
+} 
+.login_box .form-control::-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+color: #fff; 
+} 
+.login_box .form-control::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+color: #fff; 
+} 
+.login_box .form-control::-ms-input-placeholder { /* Internet Explorer 10+ */ 
+color: #fff; 
+} 
+
+a:link {color: #e54e41;}
+.main_box {
+    position: absolute; top:50%; left:50%; margin-top:-260px; margin-left: -300px; padding: 40px 120px; width:600px; height:460px;
+   	border: 1px #DDD solid;
+    border-radius: 5px;
+    -webkit-box-shadow: 1px 5px 8px #888888; -moz-box-shadow: 1px 5px 8px #888888; box-shadow: 1px 5px 8px #888888;
+}
+.main_box .setting {position: absolute; top: 5px; right: 10px; width: 10px; height: 10px;}
+.main_box .setting a {color: #FF6600;}
+.main_box .setting a:hover {color: #555;}
+.login_logo {margin-bottom: 20px; height: 45px; text-align: center;}
+.login_logo img {height: 45px;}
+.login_msg {text-align: center; font-size: 16px;}
+.login_form {font-size: 16px;}
+.login_box .form-control {display: inline-block; *display: inline; zoom: 1; width: auto; font-size: 16px;}
+.login_box .form-control:focus{-webkit-box-shadow:none; -moz-box-shadow:none; box-shadow:none;}
+.login_box .form-control.x319 {width: 280px;}
+.login_box .form-control.x164 {width: 175px;}
+.login_box .form-group {margin-bottom: 20px;}
+.login_box .form-group label.t {width:70px; text-align: center; cursor: pointer;flaot:left;}
+.login_box .form-group.space {padding-top: 15px; border-top: 1px #FFF dotted;}
+.login_box .form-group img {margin-top: 1px; height: 32px; vertical-align: top;}
+.login_box .m {cursor: pointer;}
+.bottom {text-align: center; font-size: 12px;}
+
+.destroy{position:fixed;top:0px;left:50%;margin-left:-425px;*margin-left:-718px;_margin-left:-425px;margin-top:-292px;z-index:99996;opacity:0;filter:alpha(opacity=0);}
+.sheet{position:relative;width:850px;height:90px;margin:auto;padding:0;background:#fff9e2 url("${BASE_PATH}/B-JUI/BJUI/images/tips_bg.gif");
+	box-shadow:inset 0 -1px 0 #FFF,0 1px 6px rgba(0,0,0,.3);
+	-moz-box-shadow:inset 0 -1px 0 #FFF,0 1px 6px rgba(0,0,0,.3);
+	-webkit-box-shadow:inset 0 -1px 0 #FFF,0 1px 6px rgba(0,0,0,.3);
+	
+	border-bottom:2px solid #efebda;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+	-moz-border-bottom-left-radius:5px;
+	-moz-border-bottom-right-radius:5px;
+	-webkit-border-bottom-left-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+}
+.sheet a.close{display:block;position:absolute;width:20px;height:20px;right:5px;top:5px;background:url("${BASE_PATH}/B-JUI/images/sheet_close.gif") no-repeat;}
+.sheet a:hover.close{background-position:0 -30px;}
+.sheet a:active.close{background-position:0 -60px;}
+.sheet .head{padding:20px 15px;}
+.sheet .head h2{padding:0;font-size:18px;font-weight:400;color:red;text-align:center;}
+.ma{color:#fff;width:70px;text-align: center;}
+</style>
+<script type="text/javascript">
+$(function() {
+    //choose_bg();
+	changeCode();
+	//$("#j_username").focus();
+
+	$("#captcha_img").click(function(){
+		changeCode();
+		$("#j_username").focus();
+	});
+	$("#login_form").submit(function(){
+		var issubmit = true;
+		var i_index  = 0;
+		$(this).find('.in').each(function(i){
+			if ($.trim($(this).val()).length == 0) {
+				$(this).css('border', '1px #ff0000 solid');
+				issubmit = false;
+				if (i_index == 0)
+					i_index  = i;
+			}
+		});
+		if (!issubmit) {
+			$(this).find('.in').eq(i_index).focus();
+			return false;
+		}
+		var username = $("#j_username").val();
+		var userpassword = $("#j_password").val();
+		var captcha = $("#j_captcha").val();
+		var randomKey = $("#j_randomKey").val();
+		var remember = "";
+		if ($("#j_remember").attr('checked')) {
+			remember = "true";
+		}
+		$("#login_ok").attr("disabled", true).val('登陆中..');
+		//调用ajax
+		$.post("${BASE_PATH}/security/user/dologin",
+				{
+			username:username,
+			password:userpassword,
+			captcha:captcha,
+    		remember:remember,
+    		t:randomKey
+    		},
+    		function(data,status){
+    			if(status!="success"){
+    				//alert("登录提交失败！");
+    				tip("登录提交失败！");
+    			}else{
+    				if(data.statusCode!="200"){
+    					//alert(data.message);
+    					tip(data.message);
+    				}else{
+    					window.location.href="${BASE_PATH}/admin";
+    					return;
+    				}
+    			}
+    			$("#login_ok").attr("disabled", false).val('登陆');
+    			$("#j_username").focus();
+    			changeCode();
+    			});
+        return false;
+	});
+	
+	$(".close").click(function(){
+		$(".destroy").stop(true).animate({'margin-top':'-292px','opacity':'0'},800);
+	});
+	
+	$('#j_username').bind('input propertychange', function() {
+		$(".destroy").stop(true).animate({'margin-top':'-292px','opacity':'0'},800);
+	});
+	$('#j_password').bind('input propertychange', function() {
+		$(".destroy").stop(true).animate({'margin-top':'-292px','opacity':'0'},800);
+	});
+	$('#j_captcha').bind('input propertychange', function() {
+		$(".destroy").stop(true).animate({'margin-top':'-292px','opacity':'0'},800);
+	});
+	
+});
+function genTimestamp(){
+	var time = new Date();
+	return time.getTime();
+}
+function changeCode(){
+	var j_randomKey = genTimestamp();
+	$("#j_randomKey").val(j_randomKey);
+	$("#captcha_img").attr("src", "${BASE_PATH}/security/user/captcha?t="+j_randomKey);
+}
+
+</script>
+<script type="text/javascript">
+function tip(msg){
+	$("#errormsg").text(msg);
+	$(".destroy").stop(true).animate({'margin-top':'0px','opacity':'1'},400);
+}
+</script>
+</head>
+<body>
+<!--[if lte IE 7]>
+<style type="text/css">
+#errorie {position: fixed; top: 0; z-index: 100000; height: 30px; background: #FCF8E3;}
+#errorie div {width: 900px; margin: 0 auto; line-height: 30px; color: orange; font-size: 14px; text-align: center;}
+#errorie div a {color: #459f79;font-size: 14px;}
+#errorie div a:hover {text-decoration: underline;}
+</style>
+<div id="errorie"><div>您还在使用老掉牙的IE，请升级您的浏览器到 IE8以上版本 <a target="_blank" href="http://windows.microsoft.com/zh-cn/internet-explorer/ie-8-worldwide-languages">点击升级</a>&nbsp;&nbsp;强烈建议您更改换浏览器：<a href="http://down.tech.sina.com.cn/content/40975.html" target="_blank">谷歌 Chrome</a></div></div>
+<![endif]-->
+
+
+<div class="main_box">
+	<div class="login_box">
+        <div class="login_logo" style="height:80px;">
+            <img src="${BASE_PATH}/B-JUI/images/bglogo.png" style="height:80px;">
+        </div>
+        <div class="login_form">
+    		<form action="${BASE_PATH}/security/user/dologin/" id="login_form" method="post" autocomplete="off">
+    			<input name="t" type="hidden" value="" id="j_randomKey" />
+    			<div class="form-group fish_group">
+    				<label for="j_username" class="t"><img src="${BASE_PATH}/B-JUI/images/user.png"></label> 
+    				<div class="fish_bottom">
+    				<input id="j_username" value="" name="username" type="text" placeholder="手机/用户名" class="form-control x319 in fish_input">
+    				</div>
+    			</div>
+    			<div class="form-group fish_group">
+    				<label for="j_password" class="t"><img src="${BASE_PATH}/B-JUI/images/lock.png" style="padding-bottom:2px;"></label> 
+    				<div class="fish_bottom">
+    				<input id="j_password" value="" name="password" type="password" placeholder="密码" class="form-control x319 in fish_input">
+    				</div>
+    			</div>
+    			<div class="form-group fish_group">
+    				<label for="j_captcha" class="ma">验证码：</label> 
+    				<div class="fish_bottom">
+    				<input id="j_captcha" name="captcha" type="text" class="form-control x164 in fish_input">
+    				<img id="captcha_img" alt="点击更换" title="点击更换" src="captcha" class="m">
+    				</div>
+    			</div>
+    			 <div class="form-group fish_group" style="border:0px;">
+                    <label class="t"></label>
+                    <label for="j_remember" class="m fish_check fish_chang"><input id="j_remember" type="checkbox" value="true" name="rememberMe">&nbsp;记住我，下次直接登入</label>
+                    
+    			</div> 
+    				
+    			<!-- <div class="form-group fish_group" style="border:0px;">
+                    
+                     <label for="j_join" class="m fish_check"><input id="j_join" type="checkbox" value="true" name="rememberMe">&nbsp;下次直接登入</label>
+    			</div> -->
+    			
+    		
+    			<div class="form-group fish_ok">
+                    
+    				<input type="submit" id="login_ok" value="登录" class="btn btn-primary btn-lg fish_submit">
+    			</div>
+    			<!-- <div class="form-group space">
+                    <label class="t"></label>
+                    <label class="m">admin密码admin 其他用户密码123456</label>
+    			</div> -->
+    		</form>
+        </div>
+	</div>
+	<!-- <div class="bottom">Copyright &copy; 2013 - 2015 <a href="" target="_blank">JfSnPM</a>
+		此处插入统计代码
+    	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253642392'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1253642392%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+		 
+	</div> -->
+</div>
+
+<div class="destroy">
+	<div class="sheet">
+		<div class="head">
+			<h2 id="errormsg">提示信息</h2>
+		</div>
+		<a class="close" title="关闭" href="#"></a>
+	</div>
+</div>
+
+</body>
+</html>

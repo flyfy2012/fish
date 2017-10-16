@@ -1,0 +1,80 @@
+<div class="bjui-pageHeader">
+    <form id="pagerForm" data-toggle="ajaxsearch" action="${BASE_PATH}/fish/news" method="post">
+        <input type="hidden" name="pageSize" value="${(model.pageSize)!''}">
+        <input type="hidden" name="pageCurrent" value="${(model.pageCurrent)!''}">
+        <input type="hidden" name="orderField" value="${(param.orderField)!''}">
+        <input type="hidden" name="orderDirection" value="${(param.orderDirection)!''}">
+       
+        <div class="bjui-searchBar">
+          
+            
+            <label>标题：</label><input type="text" id="customNo" value="${(title)!}" name="title" class="form-control" size="10">&nbsp;
+            <button type="submit" class="btn btn-blue" data-icon="search">查询</button>&nbsp;
+            
+          	<a class="btn btn-orange" href="javascript:;" onclick="$(this).navtab('reloadForm', true);" data-icon="undo">清空查询</a>
+            <a class="btn btn-orange" href="${BASE_PATH}/fish/news/add"  data-toggle="navtab" data-icon="plus" data-id="menuAdd">添加</a>
+             <a class="btn btn-green" href="javascript:;" onclick="$(this).navtab('reloadForm', false);" data-icon="refresh">刷新</a>
+
+        </div>
+    </form>
+</div>
+
+<div class="bjui-pageContent tableContent">
+    <table data-toggle="tablefixed" data-width="100%" data-nowrap="true" id="tabledit11">
+        <thead>
+            <tr>
+            	<th>序号</th>
+				<th>发布人</th>
+				<th>标题</th>
+				<th>分类</th>
+				<th>时间</th>
+				<th>状态</th>
+                <th width="150">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+			<#list page.getList() as news>
+				<tr data-id="${news_index+1}">
+				<td>${news_index+1}</td>
+				<td>${(news.username)!}</td>				
+				<td>${(news.title)!}</td>
+				<td>${(news.catname)!}</td>
+				<td>${(news.dateline)!}</td>
+			    <#if news.verify=0>
+					<td style="color:red">等待审核中</td>
+	            <#elseif news.verify=1>
+	              	<td style="color:green">已通过审核</td>
+	            <#else>
+	              	<td>未通过审核</td>
+               	</#if>
+                  <td>
+                <a href="${BASE_PATH}/fish/news/view/${news.id}" class="btn btn-blue" data-toggle="navtab" data-id="newsView"  data-title="查看">查看</a>
+                 <a href="${BASE_PATH}/fish/news/delete/${news.id}" class="btn btn-red" data-toggle="doajax" data-confirm-msg="确定要删除该行信息吗？">删除</a>
+                 <#if news.verify!=1>
+                <a href="${BASE_PATH}/fish/news/edit/${news.id}" class="btn btn-green" data-toggle="navtab" data-id="menuEdit" data-title="编辑">编辑</a>
+                </#if>
+
+                </td>
+            </tr>
+           </#list>
+            
+        </tbody>
+    </table>
+</div>
+<div class="bjui-pageFooter">
+    <div class="pages">
+        <span>每页&nbsp;</span>
+        <div class="selectPagesize">
+            <select data-toggle="selectpicker" data-toggle-change="changepagesize">
+                <option value="15">15</option>
+                <option value="60">60</option>
+                <option value="120">120</option>
+                <option value="150">150</option>
+            </select>
+        </div>
+        <span>&nbsp;条，共${page.totalRow} 条</span>
+    </div>
+    <div class="pagination-box" data-toggle="pagination" data-total="${page.totalRow}" data-page-size="${page.pageSize}" data-page-current="${page.pageNumber}">
+    </div>
+    </div>
+    

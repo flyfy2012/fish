@@ -1,0 +1,67 @@
+10
+
+dir
+630
+http://code.taobao.org/svn/swust_fish/swust_fish/WebRoot/WEB-INF/html/fish
+http://code.taobao.org/svn/swust_fish
+
+
+
+2016-01-27T09:29:35.174251Z
+618
+wlmarket
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+6e3d1714-0953-4bc9-807f-994467e85a91
+
+check
+dir
+
+fubi
+dir
+
+goods
+dir
+
+goodsCategory
+dir
+
+harvest
+dir
+
+keytAttr
+dir
+
+message
+dir
+
+news
+dir
+
+newsCategory
+dir
+
+newsReport
+dir
+
+nonkeytAttr
+dir
+
+order
+dir
+
+teamBuy
+dir
+

@@ -1,0 +1,63 @@
+<form id="pagerForm" method="post" action="${BASE_PATH}/security/authority/add">
+	<input type="hidden" name="pageNum" value="${(param.pageNumShown)!}" />
+	<input type="hidden" name="numPerPage" value="${(param.numPerPage)!}" />
+</form>
+
+
+
+<form action="${BASE_PATH}/security/authority/save" data-toggle="validate">
+<div class="bjui-pageContent">
+
+         
+          <dl>
+				<dt>权限名称:</dt>
+				<dd><input id="authorityName" data-rule="required" name="authority.name" type="text" size="30"  value="${(authority.name)!}"/></dd>
+			</dl>
+			<dl class="nowrap">
+				<dt>权限描述:</dt>
+				<dd><input id="authorityDescription" type="text"  data-rule="required" name="authority.description" size="30" value="${(authority.description)!}" /></dd>  </dd>  
+			</dl>
+	<table>
+		<thead>
+			<tr>
+				<th width="22"><input type="checkbox" group="ids" data-rule="checkboxCtrl"></th>
+				<th width="120"  class="asc">资源名</th>
+				<th >资源描述</th>
+			</tr>
+		</thead>
+		<tbody>	
+		<#list page.getList()  as resource>
+			<tr data-target="sid_user" rel="{resource.id}" >
+				<td><input name="orderIndexs"  value= "${resource.id}" type="checkbox"></td>
+				<td>${resource.name}</td>
+				<td>${resource.source}</td>
+			</tr>
+		</#list>
+		<tr><td><button type="submit" class="btn-default" data-icon="save">保存</button></td>
+		<td><button type="button" class="btn-close" data-icon="close">取消</button></td></tr>
+		</tbody>
+	</table>
+  </div>
+ 	
+ 	<div class="bjui-pageFooter">
+		<div class="pages">
+        <span>每页&nbsp;</span>
+        <div class="selectPagesize">
+            <select data-toggle="selectpicker" data-toggle-change="changepagesize">
+                <option value="20">20</option>
+                <option value="40">40</option>
+                <option value="80">80</option>
+                <option value="160">160</option>
+            </select>
+        </div>
+        <span>&nbsp;条，共 ${page.totalRow} 条</span>
+    </div>
+		
+		<ul>
+        <li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+			<li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+			</ul>
+</div>
+</form>	
+
+

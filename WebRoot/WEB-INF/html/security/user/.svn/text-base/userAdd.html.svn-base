@@ -1,0 +1,73 @@
+<form id="pagerForm" method="post" action="${BASE_PATH}/security/user/add">
+    <input type="hidden" name="pageNum" value="${(param.pageNumShown)!}" />
+    <input type="hidden" name="numPerPage" value="${(param.numPerPage)!}" />
+</form>
+<form method="post" action="${BASE_PATH}/security/user/save" data-toggle="validate" >
+<div class="bjui-pageContent">
+         <div class="bjui-pageFormContent" layoutH="57">
+            <dl>
+                <dt>真实姓名：</dt>
+                <dd><input data-rule="required" name="user.realname" type="text" size="30"  /></dd>
+            </dl>
+             <dl>
+                <dt>昵称：</dt>
+                <dd><input data-rule="required" name="user.nickname" type="text" size="30"  /></dd>
+            </dl>
+            <dl>
+                <dt>电话号码：</dt>
+                <dd><input type="text" size="30" data-rule="required" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " onafterpaste="this.value=this.value.replace(/[^\d]/g,'') " name="user.username"/> </dd>
+            </dl>
+            <dl>
+                <dt>密码：</dt>
+                <dd><input type="text" size="30" data-rule="required" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " onafterpaste="this.value=this.value.replace(/[^\d]/g,'') " name="user.plainPassword"/> </dd>
+             </dl>
+            <dl>
+                <dt>邮箱：</dt>
+                <dd><input type="text" size="30" data-rule="required"  name="user.email"/> </dd>
+             </dl>
+             <dl>   
+             	<dt>用户类型：</dt>
+                    <dd>
+                    	<input type="radio" name="user.grouptype" value="3" />小二
+                     	<input type="radio" name="user.grouptype" value="2" />企业
+                        <input type="radio" name="user.grouptype" value="1" />网红 
+                        <input type="radio" name="user.grouptype" value="0" />审核人员
+                    </dd>
+            </dl>
+            <dl>   
+             	<dt>性别：</dt>
+                    <dd>
+                        <input type="radio" name="user.gender" value="1" />女 
+                        <input type="radio" name="user.gender" value="0" />男
+                    </dd>
+            </dl>
+            <div class="divider"></div>
+      <table class="table" width="1200" layoutH="138">
+		<thead>
+			<tr>
+				<th width="22"><input type="checkbox" group="ids" class="checkboxCtrl"  data-toggle="icheck"></th>
+				<th width="120"  class="asc">角色名</th>
+				<th >角色描述</th>
+			</tr>
+		</thead>
+		<tbody>
+		<#list roles  as role>
+			<tr target="sid_user" rel="{role.id}" >
+				<td><input name="orderIndexs"  value= "${role.id}"type="checkbox"  data-toggle="icheck"></td>
+				<td>${role.name}</td>
+				<td>${role.description}</td>
+			</tr>
+		</#list>
+		</tbody>
+	</table>
+        </div>
+    
+ </div>
+ <div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+        <li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+    </ul>
+</div>
+
+</form>

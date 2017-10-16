@@ -1,0 +1,36 @@
+<style>
+ .hover td{height:40px;line-height:40px;}
+</style>
+
+<div class="bjui-pageContent">
+	<form action="${BASE_PATH}/fish/fubi/seckillgoods/update" id="splash_add_form" data-toggle="validate">
+		<input type="hidden" name="seckillGoods" value="${(goods.goodsId)!}"/>
+		<input type="hidden" name="seckilltime" value="${(goods.seckillId)!}"/>
+		<table class="table table-condensed table-hover hover" width="100%">
+    		<tr>		
+	    		<td>
+		    		<label for="j_username" class="t">参加时间：</label>
+		    		<span>${(goods.time)!}</span>
+		    	</td>
+    		</tr>
+    		<tr>
+	    		<td>
+	    			<label for="j_username" class="t">参加商品：</label>
+	    			<span>${(goods.title)!}</span>
+	    		</td>
+    		</tr>
+    		<tr>		   
+				<td> 秒杀商品总量:<input type="text" name="totalcount" value=${(goods.totalCount)}> </td>
+			</tr>
+			<tr>
+				<td> 整点秒杀价格:<input type="text" name="seckillprice" value=${(goods.seckillPrice)}> </td>
+			</tr>			
+		</table>
+	</form>
+</div>
+<div class="bjui-pageFooter">
+	<ul>
+		<li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+		<li><button type="submit"  class="btn-default" data-icon="save">保存</button></li>
+	</ul>
+</div>

@@ -1,0 +1,67 @@
+<div class="bjui-pageHeader">
+    <form id="pagerForm" data-toggle="ajaxsearch" action="${BASE_PATH}/fish/newsReport" method="post">
+        <input type="hidden" name="pageSize" value="${(model.pageSize)!''}">
+        <input type="hidden" name="pageCurrent" value="${(model.pageCurrent)!''}">
+        <input type="hidden" name="orderField" value="${(param.orderField)!''}">
+        <input type="hidden" name="orderDirection" value="${(param.orderDirection)!''}">
+        <div class="bjui-searchBar">
+           
+                <a class="btn btn-green" href="javascript:;" onclick="$(this).navtab('reloadForm', true);" data-icon="refresh">刷新</a>
+
+        </div>
+    </form>
+</div>
+
+<div class="bjui-pageContent tableContent">
+    <table data-toggle="tablefixed" data-width="100%" data-nowrap="true" id="tabledit11">
+        <thead>
+            <tr>
+            	<th>排序</th>
+				<th>举报人</th>	
+				<th>被举报新闻id</th>		
+				<th>举报内容</th>
+				<th>举报时间</th>
+				<th>状态</th>
+			    <th width="130">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+			<#list page.getList() as report>
+			<tr data-id="${report_index+1}">
+				<td>${report_index+1}</td>
+				<td>${(report.username)!}</td>	
+				<td>${report.newsid}</td>	
+				<td>${report.content}</td>	
+				<td>${report.dateline}</td>	
+				<#if report.isRead=1 >
+				<td>未查看</td>	
+				<#elseif report.isRead=2>
+				<td>已查看</td>	
+				</#if>
+                             <td>
+                   <a href="${BASE_PATH}/fish/newsReport/view/${report.id}" class="btn btn-green" data-toggle="navtab" data-id="levelList" data-title="编辑">查看</a>
+                    <a href="${BASE_PATH}/fish/newsReport/delete/${report.id}" class="btn btn-red" data-toggle="doajax" data-confirm-msg="确定要删除该行信息吗？">删</a>		
+
+                </td>
+            </tr>
+           </#list>
+            
+        </tbody>
+    </table>
+</div>
+<div class="bjui-pageFooter">
+    <div class="pages">
+        <span>每页&nbsp;</span>
+        <div class="selectPagesize">
+            <select data-toggle="selectpicker" data-toggle-change="changepagesize">
+                <option value="30">30</option>
+                <option value="60">60</option>
+                <option value="120">120</option>
+                <option value="150">150</option>
+            </select>
+        </div>
+        <span>&nbsp;条，共 ${page.totalRow} 条</span>
+    </div>
+    <div class="pagination-box" data-toggle="pagination" data-total="${page.totalRow}" data-page-size="${page.pageSize}" data-page-current="${page.pageNumber}">
+    </div>
+    </div>

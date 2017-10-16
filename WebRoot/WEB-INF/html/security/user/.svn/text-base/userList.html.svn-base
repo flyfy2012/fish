@@ -1,0 +1,127 @@
+<div class="bjui-pageHeader" >
+    <form id="pagerForm" data-toggle="ajaxsearch" action="${BASE_PATH}/security/user" method="post">
+        <input type="hidden" name="pageSize" value="${(model.pageSize)!''}">
+        <input type="hidden" name="pageCurrent" value="${(model.pageCurrent)!''}">
+        <input type="hidden" name="orderField" value="${(param.orderField)!''}">
+        <input type="hidden" name="orderDirection" value="${(param.orderDirection)!''}">
+        <div class="bjui-searchBar">
+            <label>用户名：</label><input type="text" id="customNo" value="" name="username" class="form-control" size="10">&nbsp;
+            <button type="submit" class="btn-default" data-icon="search">查询</button>&nbsp;
+            <a class="btn btn-orange" href="javascript:;" onclick="$(this).navtab('reloadForm', true);" data-icon="undo">清空查询</a>
+            <a class="btn btn-orange" href="${BASE_PATH}/security/user/add"  data-toggle="dialog" data-width="800" data-height="1000" data-icon="plus">添加</a>
+             <a class="btn btn-green" href="javascript:;" onclick="$(this).navtab('reloadForm', true);" data-icon="refresh">刷新</a>
+            <div class="pull-right">
+                <div class="btn-group">
+                    <button type="button" class="btn-default dropdown-toggle" data-toggle="dropdown" data-icon="copy">复选框-批量操作<span class="caret"></span></button>
+                    <ul class="dropdown-menu right" role="menu">
+                        <li><a href="book1.xlsx" data-toggle="doexport" data-confirm-msg="确定要导出信息吗？">导出<span style="color: green;">全部</span></a></li>
+                        <li><a href="book1.xlsx" data-toggle="doexportchecked" data-confirm-msg="确定要导出选中项吗？" data-idname="expids" data-group="ids">导出<span style="color: red;">选中</span></a></li>
+                        <li class="divider"></li>
+                        <li><a href="ajaxDone2.html" data-toggle="doajaxchecked" data-confirm-msg="确定要删除选中项吗？" data-idname="delids" data-group="ids">删除选中</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="bjui-pageContent tableContent">
+    <table data-toggle="tablefixed" data-width="100%" data-nowrap="true" >
+        <thead>
+            <tr>
+            	<th>编号</th>
+				<th>登录名</th>
+				<th>UID</th>
+				<th>真实姓名</th>
+				<th>类型</th>
+				<th>昵称</th>
+				<th>登录方式</th>
+				<th>注册时间</th>
+				<th>在线状态</th>
+				<th>禁止</th>	
+					
+                <th width="26"><input type="checkbox" class="checkboxCtrl" data-group="ids" data-toggle="icheck"></th>
+                <th width="130">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+			<#list page.getList() as user>
+			<tr data-id="${user_index+1}">
+				<td>${user_index+1}</td>
+				<td>${user.username}</td>	
+				<td>${user.id}</td>			
+				<td>${(user.realname)!}</td>
+				<td>
+				<#if user.grouptype==0>
+				顾客
+				<#elseif user.grouptype==1>
+				自媒体
+				<#elseif user.grouptype==2>
+				企业
+				<#elseif user.grouptype==3>
+				小二
+				</#if>
+				</td>
+				
+				<td>${(user.nickname)!}</td>
+				
+				<#if user.fromwhere == 0>
+				<td>web</td>
+				<#elseif user.fromwhere == 1>
+				<td>android</td>
+				<#elseif user.fromwhere == 2>
+				<td>Iphone</td>
+				<#else>
+				<td>web</td>
+				</#if>
+				
+				<td>${(user.regtime)!}</td>
+				
+				<#if user.online == 0>
+				<td>离线</td>
+				<#else>
+				<td>在线</td>
+				</#if>
+				
+				<#if user.enabled == true>
+				<td>正常</td>
+				<#else>
+				<td>已禁止</td>
+				</#if>
+                <td><input type="checkbox" name="ids" data-toggle="icheck" value="1"></td>
+                <td>
+                <#if frommessage??>
+               <a href="javascript:;" data-toggle="lookupback" data-args="{touid:'${user.id}',toname:'${user.nickname}'}" class="btn btn-blue" title="选择本项" data-icon="check">选择</a>
+               
+               <#else>
+                    <a href="${BASE_PATH}/security/user/edit/${user.id}" data-id="useredit" data-name="编辑用户" class="btn btn-green" data-toggle="navtab" data-title="编辑">编辑</a>
+                    <a href="${BASE_PATH}/security/user/delete/${user.id}" class="btn btn-red" data-toggle="doajax" data-confirm-msg="确定要删除该行信息吗？">删</a>
+ 				<#if user.enabled == true>
+				<a href="${BASE_PATH}/security/user/disable/${user.id}" class="btn btn-blue" data-toggle="doajax" data-confirm-msg="确定要禁止该用户吗？">禁止</a>		
+				<#else>
+				<a href="${BASE_PATH}/security/user/enable/${user.id}" class="btn btn-blue" data-toggle="doajax" data-confirm-msg="确定要开启该用户吗？">开启</a>					
+				</#if>					
+                </td>
+                </td>
+                </#if>
+            </tr>
+           </#list>
+            
+        </tbody>
+    </table>
+</div>
+<div class="bjui-pageFooter">
+    <div class="pages">
+        <span>每页&nbsp;</span>
+        <div class="selectPagesize">
+            <select data-toggle="selectpicker" data-toggle-change="changepagesize">
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="120">120</option>
+                <option value="150">150</option>
+            </select>
+        </div>
+        <span>&nbsp;条，共 ${page.totalRow} 条</span>
+    </div>
+    <div class="pagination-box" data-toggle="pagination" data-total="${page.totalRow}" data-page-size="${page.pageSize}" data-page-current="${page.pageNumber}">
+    </div>
+    </div>

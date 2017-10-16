@@ -1,0 +1,23 @@
+<div class="bjui-pageContent tableContent">
+<h5 style="text-align:center;font-weight:700">${goods.title}</h5>
+    <table data-toggle="tablefixed" data-nowrap="true">
+    	
+        <thead>
+            <tr>
+            	<th>序号</th>
+				<th>用户名</th>
+				<th>参团时间</th>
+            </tr>
+        </thead>
+        <tbody>
+			<#list list as user>
+			<tr>
+				<td>${user_index+1}</td>
+				<td>${(user.nickname)!}</td>
+				<td>${(user.datetime)!}</td>
+            </tr>
+           </#list>
+            
+        </tbody>
+    </table>
+</div>

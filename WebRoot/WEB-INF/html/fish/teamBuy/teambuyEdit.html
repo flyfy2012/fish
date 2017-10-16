@@ -1,0 +1,40 @@
+<div class="bjui-pageContent">
+<form id="goods_add_form" method="post" action="${BASE_PATH}/fish/teamBuy/update" data-toggle="validate" >
+	<input type="hidden" name="tid" value="${teamBuy.id}">
+	<table class="table table-condensed table-hover" data-width="100%">
+		<tbody>
+            <tr>
+            	<td>
+            		<label class="control-label x100">商品名称：</label>
+            		<input class="input-nm" type="text" size="30" value="${teamBuy.title}" readonly />
+    			</td>
+            </tr>
+			<tr>
+            	<td>
+	                <label class="control-label x100">数量：</label>
+                	<input data-rule="required" class="input-nm" name="totalCount" type="text" size="30" value="${teamBuy.totalCount}" />
+            	</td>
+            </tr>
+            <tr>
+            	<td>
+	                <label class="control-label x100">团购价格：</label>
+                	<input data-rule="required" class="input-nm" name="price" type="text" size="30" value="${teamBuy.teambuyPrice}" />
+            	</td>
+            </tr>
+            <tr>
+            	<td>
+	                <label class="control-label x100">结束时间：</label>
+	                <input type="text" name="endTime" value="${teamBuy.endTime}" data-min-date="%y-%M-%d" data-toggle="datepicker" data-rule="required" data-pattern="yyyy-MM-dd HH:mm:ss" size="30">
+            	</td>
+            </tr>
+         </tbody>
+		</table>
+     <div class="divider"></div>
+     </form>
+   </div>
+ <div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+        <li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+    </ul>
+</div>

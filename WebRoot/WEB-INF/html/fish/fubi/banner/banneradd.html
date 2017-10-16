@@ -1,0 +1,56 @@
+
+<script type="text/javascript">
+	/*图片上传回调函数*/
+function pic_upload_success(file, data) {
+    var json = $.parseJSON(data)
+    $(this).bjuiajax('ajaxDone', json)
+    if (json[BJUI.keys.statusCode] == BJUI.statusCode.ok) {
+        $('#goods_cover').val(json.tabid).trigger('validate')
+        $('#goods_pic').html('<img name="cover" src="${BASE_PATH}/'+ json.tabid +'" width="200" />')
+    	
+    }   
+}
+</script>
+<style>
+#hover4 td{height:40px;line-height:40px;}
+</style>
+<div class="bjui-pageContent">
+	<form action="${BASE_PATH}/fish/fubi/banner/save" id="splash_add_form" data-toggle="validate">
+		<table class="table table-condensed table-hover" width="100%" id="hover4">
+    		<tr>		
+	    		<td>
+	    			<label for="j_username" class="t">选择链接商品：</label>
+	    			<select name="goodsid" id="j_news" >
+	    				<option value=0>请选择</option>
+	    				<#list goods as good>
+	    					<option value="${good.id}">${good.title}</option>
+	    				</#list>
+	    			</select>
+	    		</td>
+    		</tr>
+    		<tr>
+    			<td id="j_date">
+                     <label for="j_custom_birthday" class="control-label x85">有效期：</label>
+                     <input type="text" name="passTime" id="j_custom_birthday" data-min-date="%y-%M-%d" value="" data-toggle="datepicker" data-rule="required;date" size="15">
+                </td>
+            </tr>  
+            <tr>
+            	<td>
+	                <label class="control-label x85">Banner:</label>
+                	<div style="display: inline-block; vertical-align: middle;">
+                     	<div id="j_custom_pic_up" data-toggle="upload" data-uploader="${BASE_PATH}/file/upload/newsUpload" data-file-size-limit="1024000000" data-file-type-exts="*.jpg;*.png;*.gif;*.mpg" data-multi="true" data-file-obj-name="filedata" data-on-upload-success="pic_upload_success" data-icon="cloud-upload"></div>
+                 	</div>
+                 	<div id="goods_pic"></div>
+                 	<input type="hidden" id="goods_cover" name="goods.cover" value="">
+                </td>
+            </tr>			
+			</tbody>
+		</table>
+	</form>
+</div>
+<div class="bjui-pageFooter">
+	<ul>
+		<li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+		<li><button type="submit"  class="btn-default" data-icon="save">保存</button></li>
+	</ul>
+</div>

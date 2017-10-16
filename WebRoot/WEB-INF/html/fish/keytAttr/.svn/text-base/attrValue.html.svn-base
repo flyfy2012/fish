@@ -1,0 +1,50 @@
+<div class="bjui-pageHeader">
+	<div class="bjui-searchBar">
+	    <label>双击记录编辑关键属性------${category.name}：${params.name}</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    <a class="btn btn-green" href="javascript:;" onclick="$(this).navtab('reloadForm', true);" data-icon="refresh">刷新</a>
+	</div>
+</div>
+<div class="bjui-pageContent tableContent">
+<form method="post" action="${BASE_PATH}/fish/keytAttr/saveAttrValue" data-toggle="validate">
+    <table class="table" data-toggle="tabledit" data-single-noindex="true">
+    	<thead>
+     		<tr style="height:40px;text-align:left;">
+     			<th title="&nbsp;"width="1%">
+		      		<input type="hidden" name="ids" value="0" size="0">
+		      	</th>
+		      	<th title="排序" width="20%" >
+		      		<input type="text" name="displayorder" class="no" data-rule="required" value="0" size="1">
+		      	</th>
+		      	<th title="值" width="20%" >
+		      		<input type="text" name="values" data-rule="required" value="" size="50">
+		      	</th>
+		      	</th>
+		      	<th title="操作" width="20%" data-addtool="true">
+                	<a href="javascript:;" class="btn btn-green" data-toggle="dosave">保存</a>
+                	<a href="${BASE_PATH}/B-JUI/ajaxDone2.html" class="btn btn-red row-del" data-confirm-msg="确定要删除该行信息吗？">删</a>
+                </th>		           	
+      		</tr>
+  		</thead>
+	    <tbody>
+	    <input type="hidden" name="paramsId" value="${params.id}"/>
+		<#list list as val>
+			<tr>
+				<td>${val.id}</td>
+				<td>${val.displayorder}</td>
+				<td>${(val.value)!}</td>
+				<td data-noedit="true">
+					<button type="button" class="btn-green" data-toggle="doedit">编辑</button>
+                    <a href="${BASE_PATH}/B-JUI/ajaxDone2.html" class="btn btn-red row-del" data-confirm-msg="确定要删除该行信息吗？">删</a>
+                </td>
+			</tr>
+		</#list>
+	</tbody>
+	</table>
+	</form>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><a class="btn btn-orange" href="javascript:;" onclick="$(this).navtab('reloadForm', true);" >取消修改</a></li>
+        <li><button type="submit" class="btn btn-red" data-icon="save">保存</button></li>
+    </ul>
+</div>

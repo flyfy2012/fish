@@ -1,0 +1,70 @@
+<form id="pagerForm" method="post"
+	action="${BASE_PATH}/security/authority/add">
+	<input type="hidden" name="pageNum" value="${(param.pageNumShown)!}" />
+	<input type="hidden" name="authority.name" value="${(authority.name)!}" />
+	<textarea style="display: none" name="authority.description"></textarea>
+	<input type="hidden" name="numPerPage" value="${(param.numPerPage)!}" />
+</form>
+
+
+
+	<form action="${BASE_PATH}/security/authority/update" data-toggle="validate">
+		<div class="bjui-pageContent">
+		
+			<input id="authorityId" type="hidden" name="authority.id"
+				value="${authority.id}">
+
+			<dl>
+				<dt>权限名称：</dt>
+				<dd>
+					<input id="authorityName" data-rule="required" name="authority.name"
+						value="${authority.name}" type="text" size="30" />
+				</dd>
+			</dl>
+			<dl class="nowrap">
+				<dt>权限描述：</dt>
+				<dd>
+					<textarea id="authorityDescription" data-rule="required"
+						name="authority.description">${authority.description}</textarea>
+				</dd>
+			</dl>
+			<table class="table">
+				<thead>
+					<tr>
+						<th width="22"><input type="checkbox" data-group="ids" class="checkboxCtrl"></th>
+						<th width="120" class="asc">资源名</th>
+						<th>资源描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<#list page.getList() as resource>
+					<tr data-target="sid_user" rel="{resources.id}">
+						<td><input name="orderIndexs" value="${resource.id}" type="checkbox"<#if resource.selected?exists><#if resource.selected==1> checked="checked"</#if></#if> ></td>
+						<td>${resource.name}</td>
+						<td>${resource.source}</td>
+					</tr>
+					</#list>
+					<tr>
+					<td><button type="submit" class="btn-default" data-icon="save">保存</button></td>
+					<td><button type="button" class="btn-close" data-icon="close">取消</button></td>
+					</tr>
+					
+				</tbody>
+			</table>
+		</div>
+		
+
+<div class="bjui-pageFooter">
+			<ul>
+				<li>
+							<button type="submit" class="btn-default" data-icon="save">保存</button>
+						</li>
+				<li>
+							<button type="button" class="btn-close" data-icon="close">取消</button>
+						</li>
+			</ul>
+		</div>
+		
+	</form>
+
+

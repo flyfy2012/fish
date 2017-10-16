@@ -1,0 +1,52 @@
+<div class="bjui-pageHeader">
+    <form id="pagerForm" data-toggle="ajaxsearch" action="${BASE_PATH}/fish/fubi/seckilltime" method="post">
+        <input type="hidden" name="pageSize" value="${(model.pageSize)!''}">
+        <input type="hidden" name="pageCurrent" value="${(model.pageCurrent)!''}">
+        <input type="hidden" name="orderField" value="${(param.orderField)!''}">
+        <input type="hidden" name="orderDirection" value="${(param.orderDirection)!''}">
+       
+        <div class="bjui-searchBar">
+      		<a class="btn btn-orange" href="${BASE_PATH}/fish/fubi/seckilltime/add"  data-toggle="dialog" data-icon="plus" data-id="menuAdd">添加</a>
+            <a class="btn btn-green" href="javascript:;" onclick="$(this).navtab('reloadForm', true);" data-icon="refresh">刷新</a>
+        </div>
+    </form>
+</div>
+
+<div class="bjui-pageContent tableContent">
+    <table data-toggle="tablefixed" data-width="100%" data-nowrap="true" id="tabledit11">
+        <thead>
+            <tr>
+            	<th>序号</th>
+				<th>整点时间</th>
+                <th width="150">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+			<#list page as sec>
+				<tr data-id="${sec_index+1}">
+					<td>${sec_index+1}</td>
+					<td>${(sec.time)!}</td>				
+	                <td>
+	                	<a href="${BASE_PATH}/fish/fubi/seckilltime/delete/${sec.id}" class="btn btn-red" data-toggle="doajax" data-confirm-msg="确定要删除该行信息吗？">删除</a>	
+	                </td>
+            	</tr>
+           </#list>
+        </tbody>
+    </table>
+</div>
+<div class="bjui-pageFooter">
+    <div class="pages">
+        <span>每页&nbsp;</span>
+        <div class="selectPagesize">
+            <select data-toggle="selectpicker" data-toggle-change="changepagesize">
+                <option value="15">15</option>
+                <option value="60">60</option>
+                <option value="120">120</option>
+                <option value="150">150</option>
+            </select>
+        </div>
+        
+    </div>
+     </div>
+    </div>
+    

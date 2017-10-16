@@ -1,0 +1,80 @@
+<div class="bjui-pageHeader" >
+	<form id="pagerForm" data-toggle="ajaxsearch" action="${BASE_PATH}/fish/newsCheck/alreadyCheck" method="post"><!-- 刷新使用此路径 -->
+	 	<input type="hidden" name="pageSize" value="${(model.pageSize)!''}">
+        <input type="hidden" name="pageCurrent" value="${(model.pageCurrent)!''}">
+        <input type="hidden" name="orderField" value="${(param.orderField)!''}">
+        <input type="hidden" name="orderDirection" value="${(param.orderDirection)!''}">
+        <div class="bjui-searchBar">
+        	<label for="news_title">新闻标题：</label>
+            <input type="text" id="news_title" name="title" class="form-control"  value="${(title)!}" size="10"/>&nbsp;
+            <button type="submit" class="btn btn-blue" data-icon="search">查询</button>&nbsp;
+            <a class="btn btn-orange" href="javascript:;" onclick="$(this).navtab('reloadForm', true);" data-icon="undo">清空查询</a>
+            <a class="btn btn-green" href="javascript:;" onclick="$(this).navtab('reloadForm', true);" data-icon="refresh">刷新</a>
+        </div>
+	</form>
+</div>
+<div class="bjui-pageContent tableContent">
+    <table data-toggle="tablefixed" data-width="100%" data-nowrap="true" id="tablelist;">
+        <thead>
+            <tr>
+            	<th>排序</th>
+            	<th>类型</th>
+				<th>标题</th>
+				<th>发布人</th>
+				<th>状态</th>
+				<th>发布时间</th>	
+				<th>查看评论</th>
+                <th width="150">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+			<#list page.getList() as news>
+			<tr data-id="${news_index+1}">
+				<td>${news_index+1}</td>
+				<td>${(news.catname)!}</td>
+				<td>${(news.title)!}</td>
+				<td>${news.username}</td>
+				<td>
+				<#if news.verify == 1>
+					<span style="color:green">通过</span>
+					<#if news.recommend ==0>
+						<a href="${BASE_PATH}/fish/newsCheck/doRecommend/${news.id}-1" class="btn btn-red" data-toggle="doajax" data-confirm-msg="确定要设为推荐？" >设为推荐</a>
+					<#elseif news.recommend==1>
+						<a href="${BASE_PATH}/fish/newsCheck/doRecommend/${news.id}-0" class="btn btn-green" data-toggle="doajax" data-confirm-msg="确定要取消推荐？">取消推荐</a>
+					</#if>
+				<#elseif news.verify ==2>
+					<span style="color:red">未通过</span]>
+				</#if>
+				</td>
+				<td>${news.dateline}</td>
+				<#if news.verify == 1>
+					<td>
+	                	<a href="${BASE_PATH}/fish/newsCheck/viewComment/${news.id}" class="btn btn-green" data-toggle="dialog"   data-title="查看评论">查看评论</a>
+	                </td>
+                <#else>
+                	<td></td>
+                </#if>
+                <td>
+                	<a href="${BASE_PATH}/fish/news/view/${news.id}" class="btn btn-orange" data-toggle="dialog" data-title="预览">预览</a>
+                </td>
+            </tr>
+           </#list>
+        </tbody>
+    </table>
+</div>
+<div class="bjui-pageFooter">
+    <div class="pages">
+        <span>每页&nbsp;</span>
+        <div class="selectPagesize">
+            <select data-toggle="selectpicker" data-toggle-change="changepagesize">
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="120">120</option>
+                <option value="150">150</option>
+            </select>
+        </div>
+        <span>&nbsp;条，共 ${page.totalRow} 条</span>
+    </div>
+    <div class="pagination-box" data-toggle="pagination" data-total="${page.totalRow}" data-page-size="${page.pageSize}" data-page-current="${page.pageNumber}">
+    </div>
+    </div>

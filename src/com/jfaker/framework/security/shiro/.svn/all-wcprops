@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/swust_fish/!svn/ver/317/swust_fish/src/com/jfaker/framework/security/shiro
+END
+ShiroUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/swust_fish/!svn/ver/317/swust_fish/src/com/jfaker/framework/security/shiro/ShiroUtils.java
+END
+ShiroPrincipal.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/shiro/ShiroPrincipal.java
+END
+ShiroAuthorizingRealm.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/swust_fish/!svn/ver/72/swust_fish/src/com/jfaker/framework/security/shiro/ShiroAuthorizingRealm.java
+END
+ShiroPlugin.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/shiro/ShiroPlugin.java
+END
+ShiroIniWebEnvironment.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/shiro/ShiroIniWebEnvironment.java
+END

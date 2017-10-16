@@ -1,0 +1,42 @@
+
+<form method="post" action="${BASE_PATH}/security/menu/update" data-toggle="validate" >
+<div class="bjui-pageContent">
+         <div class="pageFormContent" layoutH="57">
+            <dl>
+                <dt>菜单名称</dt>
+                <dd><input data-rule="required" value="${(menu.name)!''}" name="menu.name" type="text" size="30"  /></dd>
+            </dl>
+  			
+                <input data-rule="required" value="${menu.id}" name="menu.id" type="hidden" size="30"  />
+            
+             <dl class="nowrap">
+                <dt>上级菜单</dt>
+                <dd><input type="hidden" value="${(menu.parentId)!0}" name="parentid"  class="doc_lookup form-control" size="5"/></dd>  
+				<dd><input  readonly type="text" data-toggle="lookup" data-url="${BASE_PATH}/security/menu?lookup=2" value="${(menu.parentName)!''}" name="parentname" class="doc_lookup form-control" size="10"></dd>
+            </dl>
+            <dl>
+                <dt>ref</dt>
+                 <dd><input  value="${(menu.ref)!''}" name="menu.ref" type="text" size="30"  /></dd>
+             </dl>
+    		 <dl>
+                <dt>排序</dt>
+                <dd><input data-rule="required" value="${(menu.orderby)!''}" name="menu.orderby" type="text" size="30" /></dd>
+            </dl>
+             <dl>
+                <dt>菜单描述</dt>
+                <dd><textarea cols="45" rows="5" name="menu.description" >${(menu.description)!''}</textarea></dd>
+             </dl>
+             
+            <div class="divider"></div>
+ 
+        </div>
+    
+ </div>
+ <div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+        <li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+    </ul>
+</div>
+
+</form>

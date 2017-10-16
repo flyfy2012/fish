@@ -1,0 +1,33 @@
+<style>
+#hover tr{height:40px;line-height:40px}
+</style>
+<form method="post" action="${BASE_PATH}/fish/fubi/limittime/save" data-toggle="validate" >
+<div class="bjui-pageContent">
+	<table class="table table-condensed table-hover" width="100%" id="hover">
+	<tr>
+		<td>
+			<label for="j_username" class="t">开始时间：</label>
+			<input type="text" name="startime" id="j_custom_birthday"  data-toggle="datepicker" data-rule="required;time" data-pattern="HH:mm:ss" size="15">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label for="j_username" class="t">结束时间：</label>
+			<input type="text" name="endtime" id="j_custom_birthday"  data-toggle="datepicker" data-rule="required;time" data-pattern="HH:mm:ss" size="15">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div class="divider"></div>
+		</td>
+	</tr>
+	</table>
+</div>
+<div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+        <li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+    </ul>
+</div>
+
+</form>

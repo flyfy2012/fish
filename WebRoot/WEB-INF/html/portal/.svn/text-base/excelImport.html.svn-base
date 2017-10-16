@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body >
+
+<form action="${BASE_PATH}/portal/importexcel/read" enctype="multipart/form-data" method="post" >
+
+<input type="file" name="excel">
+<br/><br/>
+
+<input type="submit" value="上传"/>
+
+
+
+</form>
+
+</body>
+</html>

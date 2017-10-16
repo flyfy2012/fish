@@ -1,0 +1,45 @@
+<style>
+.hover tr{height:40px;line-height:40px}
+</style>
+
+<div class="bjui-pageContent">
+	<form action="${BASE_PATH}/fish/fubi/limitgoods/save" id="splash_add_form" data-toggle="validate">
+		<table class="table table-condensed table-hover hover" width="100%" >
+    		<tr>		
+	    		<td>
+	    			<label for="j_username" class="t">选择限时特惠时间段：</label>
+	    			<select name="limitTime" data-toggle="selectpicker" data-rule="required" >
+	    				<option value=0>请选择</option>
+	    				<#list time.getList() as times>
+	    					<option value="${times.id}">${times.startTime}--${times.endTime}</option>
+	    				</#list>
+	    			</select>
+	    		</td>
+    		</tr>
+    		<tr>
+	    		<td>
+	    			<label for="j_username" class="t">选择参加商品：</label>
+	    			<select name="limitGoods" data-toggle="selectpicker" data-rule="required">
+	    				<option value=0>请选择</option>
+	    				<#list goods as good>
+	    					<option value="${good.id}">${good.title}</option>
+	    				</#list>
+	    			</select>
+	    		</td>
+    		</tr>
+    		<tr>		   
+				<td> <span>特惠商品总量:</span><input type="text" name="totalcount" data-rule="required"> </td>
+			</tr>
+			<tr>
+				<td> <span>限时特惠价格:</span><input type="text" name="limitedprice" data-rule="required"> </td>
+			</tr>			
+			</tbody>
+		</table>
+	</form>
+</div>
+<div class="bjui-pageFooter">
+	<ul>
+		<li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+		<li><button type="submit"  class="btn-default" data-icon="save">保存</button></li>
+	</ul>
+</div>

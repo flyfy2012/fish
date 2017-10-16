@@ -1,0 +1,26 @@
+<style>
+#tabledit11 td{height:40px;line-height:40px;}
+</style>
+<script type="text/javascript">
+
+
+</script>
+<form method="post" action="${BASE_PATH}/fish/fubi/seckilltime/save" data-toggle="validate" >
+<div class="bjui-pageContent">
+         <table data-toggle="tablefixed" data-width="100%" data-nowrap="true" id="tabledit11">
+            <tr>
+	            <td>
+	            	<span>开始时间:</span><input type="text" name="time" id="j_custom_birthday"  data-toggle="datepicker" data-rule="required;" data-pattern="HH:00:00" size="15">
+	            	<div class="divider"></div><span style="color:red">提示：只需更改小时数，分钟数和秒数可以不管它</span>
+	            </td>
+            </tr>
+        </table>
+ </div>
+ <div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+        <li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+    </ul>
+</div>
+
+</form>

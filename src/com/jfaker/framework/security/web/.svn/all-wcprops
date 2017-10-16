@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/swust_fish/!svn/ver/609/swust_fish/src/com/jfaker/framework/security/web
+END
+OrgController.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/web/OrgController.java
+END
+FirstOrgController.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/web/FirstOrgController.java
+END
+AuthorityController.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/web/AuthorityController.java
+END
+SecondOrgController.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/web/SecondOrgController.java
+END
+MenuController.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/web/MenuController.java
+END
+ResourceController.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/web/ResourceController.java
+END
+SecurityTreeController.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/web/SecurityTreeController.java
+END
+UserController.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/swust_fish/!svn/ver/609/swust_fish/src/com/jfaker/framework/security/web/UserController.java
+END
+RoleController.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/swust_fish/!svn/ver/295/swust_fish/src/com/jfaker/framework/security/web/RoleController.java
+END

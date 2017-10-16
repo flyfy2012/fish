@@ -1,0 +1,161 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/swust_fish/!svn/ver/622/swust_fish/src/com/swust/admin/controller
+END
+GoodsCategoryController.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/swust_fish/!svn/ver/612/swust_fish/src/com/swust/admin/controller/GoodsCategoryController.java
+END
+NewsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/swust_fish/!svn/ver/620/swust_fish/src/com/swust/admin/controller/NewsController.java
+END
+GoodsCheckController.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/swust_fish/!svn/ver/135/swust_fish/src/com/swust/admin/controller/GoodsCheckController.java
+END
+NewsCategoryController.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/swust_fish/!svn/ver/45/swust_fish/src/com/swust/admin/controller/NewsCategoryController.java
+END
+OrderController.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/swust_fish/!svn/ver/494/swust_fish/src/com/swust/admin/controller/OrderController.java
+END
+CatNonkeytController.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/swust_fish/!svn/ver/238/swust_fish/src/com/swust/admin/controller/CatNonkeytController.java
+END
+NewsCommentController.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/swust/admin/controller/NewsCommentController.java
+END
+CatKeytController.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/swust_fish/!svn/ver/144/swust_fish/src/com/swust/admin/controller/CatKeytController.java
+END
+TeambuyController.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/swust_fish/!svn/ver/428/swust_fish/src/com/swust/admin/controller/TeambuyController.java
+END
+HarvestController.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/swust_fish/!svn/ver/622/swust_fish/src/com/swust/admin/controller/HarvestController.java
+END
+ProfileController.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/swust/admin/controller/ProfileController.java
+END
+LimitTimeController.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/swust_fish/!svn/ver/118/swust_fish/src/com/swust/admin/controller/LimitTimeController.java
+END
+NewsReportController.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/swust_fish/!svn/ver/32/swust_fish/src/com/swust/admin/controller/NewsReportController.java
+END
+SeckillGoodsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/swust_fish/!svn/ver/583/swust_fish/src/com/swust/admin/controller/SeckillGoodsController.java
+END
+MessageController.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/swust_fish/!svn/ver/599/swust_fish/src/com/swust/admin/controller/MessageController.java
+END
+AnnouncementController.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/swust/admin/controller/AnnouncementController.java
+END
+NewsCategoryValidator.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/swust/admin/controller/NewsCategoryValidator.java
+END
+NewsValidator.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/swust/admin/controller/NewsValidator.java
+END
+FubiBannerController.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/swust_fish/!svn/ver/541/swust_fish/src/com/swust/admin/controller/FubiBannerController.java
+END
+SeckillTimeController.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/swust_fish/!svn/ver/501/swust_fish/src/com/swust/admin/controller/SeckillTimeController.java
+END
+LimitGoodsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/swust_fish/!svn/ver/534/swust_fish/src/com/swust/admin/controller/LimitGoodsController.java
+END
+PasswordController.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/swust/admin/controller/PasswordController.java
+END
+FubiOrderController.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/swust_fish/!svn/ver/436/swust_fish/src/com/swust/admin/controller/FubiOrderController.java
+END
+GoodsController.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/swust_fish/!svn/ver/453/swust_fish/src/com/swust/admin/controller/GoodsController.java
+END
+FubiController.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/swust_fish/!svn/ver/197/swust_fish/src/com/swust/admin/controller/FubiController.java
+END
+NewsCheckController.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/swust_fish/!svn/ver/575/swust_fish/src/com/swust/admin/controller/NewsCheckController.java
+END

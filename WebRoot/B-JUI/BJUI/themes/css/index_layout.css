@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+.qu_media{height:100px;width:100%;border:1px solid #E9ECF1;margin-top:10px;margin-bottom:10px;}
+.qu_xl{width:25%;height:100px;float:left;line-height:100px;border-right:1px solid #E9ECF1;}
+.qu_a{display:block;height:30px;width:140px;font-size:25px;text-decoration:none;margin:0 auto;line-height:30px;text-align:center;padding-top:20px;}
+.qu_a:hover{color:#095F8A;text-decoration:none;}
+.qu_af{color:#5EB95E;}
+.qu_ap{color:#f37b1d;}
+.qu_az{color:#dd514c;}
+.qu_azan{color:#3bb4f2;}
+.qu_span{font-size:15px;}
+.qu_coin{font-size:20px;margin-right:5px;}

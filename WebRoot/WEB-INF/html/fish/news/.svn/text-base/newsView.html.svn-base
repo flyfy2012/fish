@@ -1,0 +1,22 @@
+<style>
+.tit{text-align:center;}
+.nowrap p{line-height:20px;}
+.pic{width:100%;}
+.pic img{width:100%}
+</style>
+<div class="bjui-pageContent">
+		<div class="pic">
+   	 		<img src="${BASE_PATH}/${(news.picture)!}"/>
+   	 	</div>
+   	 	<h4 class="tit">${(news.title)!}</h4>
+   	 	<div class="nowrap">
+   	 		<p>${(news.content)!}</p>
+   	 	</div>
+   	 	
+   	 	<#if news.catid==1>
+			<p><span>开始时间 :</span><span>${(news.starttime)!}</span></p>
+			<p><span>结束时间:</span><span>${(news.endtime)!}</span></p>
+		</#if>
+</div>
+
+

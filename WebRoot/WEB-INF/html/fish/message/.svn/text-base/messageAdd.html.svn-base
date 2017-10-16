@@ -1,0 +1,68 @@
+<script type="text/javascript">
+	/*图片上传回调函数*/
+function pic_upload_success(file, data) {
+    var json = $.parseJSON(data)
+    $(this).bjuiajax('ajaxDone', json)
+    if (json[BJUI.keys.statusCode] == BJUI.statusCode.ok) {
+        $('#goods_cover').val(json.tabid).trigger('validate')
+        $('#goods_pic').html('<img name="cover" src="${BASE_PATH}/'+ json.tabid +'" width="200" />')
+    	
+    }
+}
+$("#j_news").change(function(){
+	var value = $(this).val();
+	if(value==1){
+		$("#j_date").css("display","block");
+	}else{
+		$("#j_date").css("display","none");
+	}
+});
+
+</script>
+<style>
+.newsall{width:100%;height:40px;}
+.newsCat{height:40px;width:250px;float:left;line-height:40px}
+.birthday{float:left;line-height:40px;}
+.newsImg{float:left;}
+</style>
+<div class="bjui-pageContent">
+	<form action="${BASE_PATH}/fish/message/save" id="splash_add_form" data-toggle="validate">
+	
+		<div class="message">
+			<label for="j_username" class="nowrap" >选择用户：</label>
+		   
+               
+                <input type="hidden"  value=0 name="touid"  class="doc_lookup form-control" size="5"/></dd>  
+				<input  readonly type="text" data-toggle="lookup" data-url="${BASE_PATH}/security/user?frommessage" name="toname" class="doc_lookup form-control" size="10"></dd>
+           
+		
+	</div>
+	<div class="newsall">
+		<div class="newsCat">
+			<label for="title" class="t">标题：</label>
+			<input type="text" name="title" id="title" />
+		</div>
+		<div class="birthday">
+			<label class="control-label x85">新闻图片：</label>
+	        <div style="display: inline-block; vertical-align: middle;">
+	             <div id="j_custom_pic_up" data-toggle="upload" data-uploader="${BASE_PATH}/file/upload/newsUpload" data-file-size-limit="1024000000" data-file-type-exts="*.jpg;*.png;*.gif;*.mpg" data-multi="true" data-file-obj-name="filedata" data-on-upload-success="pic_upload_success" data-icon="cloud-upload"></div>
+	        </div>
+	        <div id="goods_pic"></div>
+	        <input type="hidden" id="goods_cover" name="pic" value="">
+		</div>
+	</div>
+	<div style="width:760px;">
+		
+	    <div style="margin:8px;display: inline-block; vertical-align: middle;">
+	     内容：   <input type="text" name="message" />
+	    </div>
+	 </div>
+	
+	</form>
+</div>
+<div class="bjui-pageFooter">
+	<ul>
+		<li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+		<li><button type="submit"  class="btn-default" data-icon="save">保存</button></li>
+	</ul>
+</div>

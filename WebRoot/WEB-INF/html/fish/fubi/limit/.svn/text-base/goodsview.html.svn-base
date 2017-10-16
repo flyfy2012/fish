@@ -1,0 +1,37 @@
+<div class="bjui-pageContent">
+         <table class="table table-hover table-bordered">
+     		 <tr>
+                <td width="20%">商品</td>
+                <td width="80%">${(goods.title)!}</td>
+             </tr>
+             <tr>
+                <td width="20%">商家</td>
+                <td width="80%">${(goods.username)!}</td>
+             </tr>
+             <tr>
+                <td width="20%">总量</td>
+                <td width="80%">${(goods.totalCount)!}</td>
+             </tr>
+             <tr>
+                <td width="20%">剩余</td>
+                <td width="80%">${(goods.lremain)!}</td>
+             </tr>
+             <tr>
+                <td width="20%">特惠价</td>
+                <td width="80%">${(goods.limitedPrice)!}</td>
+             </tr>
+             <tr>
+                <td width="20%">头像</td>
+                <td width="80%"><img src="${(goods.avatar)!}" height="50px" width="50px"/></td>
+             </tr>
+          </table>
+		  
+			<div style="margin:20px auto;">
+			<#if pictures??>
+				<#list pictures as pic>
+				  <img src="${BASE_PATH}/${pic.pic}" width="400px"/>
+				</#list>
+			</#if>
+			</div>
+
+</div>

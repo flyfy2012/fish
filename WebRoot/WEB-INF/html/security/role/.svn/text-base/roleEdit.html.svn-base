@@ -1,0 +1,60 @@
+<form id="pagerForm" method="post" action="${BASE_PATH}/security/role/add">
+	<input type="hidden" name="pageNum" value="${(param.pageNumShown)!}" />
+	<input type="hidden" name="role.name" value="${(role.name)!}" />
+	<textarea style="display: none" name="role.description"></textarea>
+	<input type="hidden" name="numPerPage" value="${(param.numPerPage)!}" />
+</form>
+
+
+
+	<form action="${BASE_PATH}/security/role/update" class="pageForm required-validate" data-toggle="validate">
+		<div class="bjui-pageContent">
+		<div class="bjui-pageFormContent" layoutH="57">
+			<input id="roleId" type="hidden" name="role.id" value="${role.id}">
+			<dl>
+				<dt>角色名称：</dt>
+				<dd>
+					<input id="roleName" data-rule="required" name="role.name"
+						value="${role.name}" type="text" size="30"/>
+				</dd>
+			</dl>
+			<dl class="nowrap">
+				<dt>角色描述：</dt>
+				<dd>
+					<textarea id="roleDescription" data-rule="required"
+						name="role.description">${role.description}</textarea>
+				</dd>
+			</dl>
+			<table class="table" width="1200" layoutH="158">
+				<thead>
+					<tr>
+						<th width="22"><input type="checkbox" group="ids"
+							class="checkboxCtrl"></th>
+						<th width="120" class="asc">权限名</th>
+						<th>权限描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<#list page.getList() as authority>
+					<tr target="sid_user" rel="{authority.id}">
+						<td><input name="ids" value="${authority.id}" type="checkbox" 
+						 <#if authority.selected?exists ><#if authority.selected==1>
+							checked="checked"</#if></#if></td>
+						<td>${authority.name}</td>
+						<td>${authority.description}</td>
+					</tr>
+					</#list>
+				</tbody>
+			</table>
+		</div>
+		</div>
+		
+		<div class="bjui-pageFooter">
+    		<ul>
+        		<li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+        		<li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+    		</ul>
+		</div>
+		
+	</form>
+	

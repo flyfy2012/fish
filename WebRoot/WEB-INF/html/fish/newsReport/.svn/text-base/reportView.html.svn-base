@@ -1,0 +1,18 @@
+<div class="bjui-pageContent">
+         <table class="table table-hover table-bordered">
+     		 <tr>
+                <td width="20%">点击查看被举报的新闻</td>
+                <td width="80%"><a href="${BASE_PATH}/fish/news/view/${report.newsid}" class="btn btn-blue" data-toggle="navtab" data-id="newsView" data-title="查看" target="_blank">点击查看</a></td>
+             </tr>
+             <tr>
+                <td width="20%">举报内容</td>
+                <td width="80%">${report.content}</td>
+             </tr>
+             <tr>
+                <td width="20%">举报人</td>
+                <td width="80%">${report.nickname}</td>
+             </tr>
+          </table>
+ </div>
+  
+

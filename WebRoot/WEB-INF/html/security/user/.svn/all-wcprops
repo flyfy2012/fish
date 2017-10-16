@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/swust_fish/!svn/ver/598/swust_fish/WebRoot/WEB-INF/html/security/user
+END
+userList.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/swust_fish/!svn/ver/598/swust_fish/WebRoot/WEB-INF/html/security/user/userList.html
+END
+login.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/swust_fish/!svn/ver/408/swust_fish/WebRoot/WEB-INF/html/security/user/login.html
+END
+userAdd.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/swust_fish/!svn/ver/346/swust_fish/WebRoot/WEB-INF/html/security/user/userAdd.html
+END
+userEdit.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/swust_fish/!svn/ver/3/swust_fish/WebRoot/WEB-INF/html/security/user/userEdit.html
+END
+userInfoEdit.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/swust_fish/!svn/ver/3/swust_fish/WebRoot/WEB-INF/html/security/user/userInfoEdit.html
+END
+changepwd.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/swust_fish/!svn/ver/418/swust_fish/WebRoot/WEB-INF/html/security/user/changepwd.html
+END

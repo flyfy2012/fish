@@ -1,0 +1,90 @@
+<!-- 标准框架 -->
+<script type="text/javascript">
+	/*图片上传回调函数*/
+function pic_upload_success(file, data) {
+    var json = $.parseJSON(data)
+    $(this).bjuiajax('ajaxDone', json)
+    if (json[BJUI.keys.statusCode] == BJUI.statusCode.ok) {
+        $('#goods_cover').val(json.tabid).trigger('validate')
+        $('#goods_pic').html('<img name="cover" src="'+ json.tabid +'" width="200" />')
+    	
+    }
+}
+	
+$("#j_news").change(function(){
+	var value = $(this).val();
+	if(value==1){
+		$("#j_date").css("display","block");
+	}else{
+		$("#j_date").css("display","none");
+	}
+});
+</script>
+
+<div class="bjui-pageContent">
+	<form action="${BASE_PATH}/fish/news/update" id="splash_add_form" data-toggle="validate">
+	<input type="hidden" name="news.id" id="id" value="${news.id}"/>
+	<table class="table-hover" width="100%">
+	<tbody>
+		<tr><td>
+			<label for="j_username" class="t">选择新闻分类：</label>
+    		<select name="newscat" id="j_news" data-toggle="selectpicker">
+    			<option value=${(news.catid)!}>请选择</option>
+    			<#list newsType.getList() as newscat>
+    				<option value="${newscat.id}" <#if newscat.id==news.catid> selected=selected</#if>>${newscat.catname}</option>
+    			</#list>
+    		</select>
+		</td>
+		<td id="j_date" <#if news.catid!=1 >style="display:none"</#if> >
+		      <label for="j_custom_birthday" class="control-label">开始日期：</label>
+              <input type="text" name="startime" id="j_custom_birthday" value="${(news.starttime)!}" data-toggle="datepicker"  size="15">
+              <label for="j_custom_birthday" class="control-label x85">截止日期：</label>
+              <input type="text" name="endtime" id="j_custom_birthday" value="${(news.endtime)!}" data-toggle="datepicker"  size="15">
+		</td>
+		</tr>
+		
+		<tr style="height:50px;"><td>
+			<label class="control-label x85">新闻图片：</label>
+	        <div style="display: inline-block; vertical-align: middle;">
+                  <div id="j_custom_pic_up" data-toggle="upload" data-uploader="${BASE_PATH}/file/upload/newsUpload" data-file-size-limit="1024000000" data-file-type-exts="*.jpg;*.png;*.gif;*.mpg" data-multi="true" data-file-obj-name="filedata" data-on-upload-success="pic_upload_success" data-icon="cloud-upload"></div>
+            </div>
+            
+            <input type="hidden" id="goods_cover" name="news.picture" value="${news.picture}">
+		</td>
+		<td>
+			<label for="title" class="t">标题：</label>
+			<input type="hidden" name="picture" id="splash_picture" />
+			<input type="text" name="title" id="title"  value="${news.title}"/>
+		</td>
+		</tr>
+		<tr><td>
+			<div id="goods_pic" style="margin-top:5px;">
+               <img name="cover" src="${news.picture}" width="200" />
+            </div>
+		</td></tr>
+		</tbody></table>
+		
+	<div style="width:760px;">
+	    <div style="margin:8px;display: inline-block; vertical-align: middle;">
+	        <textarea data-items=" 'source', '|', 'undo', 'redo', '|', 'preview', 'print', 'template', 'code', 'cut', 'copy', 'paste',
+                                'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+                                'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+                                'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
+                                'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+                                'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|',
+                                'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
+                                'anchor', 'link', 'unlink', '|', 'about'
+"
+	         data-rule="required" data-uploadJson="${BASE_PATH}/file/upload/kindEditorUpload" data-toggle="kindeditor" name="news.content"  data-minheight="600"  id="j_form_content" class="j-content" style="width: 760px;"  >
+	             ${news.content}</textarea>
+	    </div>
+	 </div>
+
+	</form>
+</div>
+<div class="bjui-pageFooter">
+	<ul>
+		<li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+		<li><button type="submit"  class="btn-default" data-icon="save">保存</button></li>
+	</ul>
+</div>

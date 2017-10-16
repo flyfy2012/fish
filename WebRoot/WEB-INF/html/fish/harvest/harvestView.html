@@ -1,0 +1,33 @@
+<style>
+	.nowrap{line-height:20px;margin-bottom:5px;}
+	img{height:100%;width:100%;margin-bottom:5px;border-radius:5px;}
+	.cname{width:100%;border:1px solid #ccc;margin-bottom:5px;border-radius:5px;padding:2px 5px 0px;}
+	.cava{height:40px;width:40px;float:left;border-radius:5px;margin-right:5px;}
+	.cava img{height:100%;border-radius:5px;}
+	.date{margin-left:10px;}
+	.date p{margin:0px;line-height:20px;}
+	.comment{margin-top:5px}
+	.comment p{line-height:20px;}
+</style>
+<div class="bjui-pageContent">
+	<p class="nowrap">${(harvest.content)!}</p>
+	<p>发布时间：${(harvest.dateline)!}</p>
+	<#list pictures as pic>
+		<img src="${(pic.picture)!}" /> 
+	</#list>
+	<#list comments as comment>
+		
+		<div class="cname">
+			<div class="cava">
+				<img src="${(comment.cavatar)!}" />
+			</div>
+			<div class="date">
+				<p>${(comment.cname)!}</p>
+				<p>${(comment.dateline)!}</p>
+			</div>
+			<div class="comment">
+				<p>${(comment.ccontent)!}</p>
+			</div>
+		</div>
+	</#list>
+</div>

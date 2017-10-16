@@ -1,0 +1,46 @@
+<style>
+#hover6 td{height:40px;line-height:40px;}
+</style>
+<div class="bjui-pageContent">
+<form id="goods_add_form" method="post" action="${BASE_PATH}/fish/teamBuy/save" data-toggle="validate" >
+	<table class="table table-condensed table-hover" data-width="100%" id="hover6">
+		<tbody>
+            <tr>
+            	<td>
+            		<label class="control-label x100">选择参加商品：</label>
+    				<select name="goodsId" data-toggle="selectpicker" data-rule="required" size="30">
+    				<option value="">请选择</option>
+    				<#list list as good>
+    					<option value="${good.id}">${good.title}</option>
+    				</#list>
+    				</select>
+    			</td>	
+            </tr>
+			<tr>
+            	<td>
+	                <label class="control-label x100">数量：</label>
+                	<input data-rule="required" name="totalCount" type="text" size="30"/>
+            	</td>
+            </tr>
+            <tr>
+            	<td>
+	                <label class="control-label x100">团购价格：</label>
+                	<input data-rule="required" name="price" type="text" size="30"/>
+            	</td>
+            </tr>
+            <tr>
+            	<td>
+	                <label class="control-label x100">结束时间：</label>
+	                <input type="text" name="endTime" data-min-date="%y-%M-%d" data-toggle="datepicker" data-rule="required" data-pattern="yyyy-MM-dd HH:mm:ss" size="30"/>
+            	</td>
+            </tr>
+         </tbody>
+		</table>
+     </form>
+   </div>
+ <div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+        <li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+    </ul>
+</div>

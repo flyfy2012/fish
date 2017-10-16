@@ -1,0 +1,65 @@
+<div class="bjui-pageHeader">
+    <form id="pagerForm" data-toggle="ajaxsearch" action="${BASE_PATH}/fish/fubi/order" method="post">
+        <input type="hidden" name="pageSize" value="${(page.pageSize)!''}">
+        <input type="hidden" name="pageCurrent" value="${(page.pageCurrent)!''}">
+        <div class="bjui-searchBar">
+            <label for="goods_title">富币商品：</label>
+           
+            <a class="btn btn-green" href="javascript:;" onclick="$(this).navtab('reloadForm', true);" data-icon="refresh">刷新</a>
+            </div>
+    </form>
+</div>
+<div class="bjui-pageContent tableContent">
+    <table data-toggle="tablefixed" data-width="100%" data-nowrap="true" id="tablelist;">
+        <thead>
+            <tr>
+            	<th>序号</th>
+            	<th>购买用户</th>
+				<th>商品</th>
+				<th>商品参数</th>
+				<th>商品价格</th>
+				<th>收货地址</th>
+				<th>联系电话</th>
+				<th>购买时间</th>				
+                <th width="150">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+			<#list page.getList() as order>
+			<tr>
+				<td>${order_index+1}</td>
+				<td>${order.nickname}</td>
+				<td>${order.title}</td>
+				<td>${(order.paramsName1)!}→${(order.paramsVal1)!}&nbsp; &nbsp;${(order.paramsName2)!}→${(order.paramsVal2)!}</td>
+				<td>${order.price}</td>
+				<td>${order.address}</td>
+				<td>${(order.telephone)!}</td>
+				<td>${order.dateline}</td>
+               	<#if order.status=1>
+	                <td>
+	                	<a href="${BASE_PATH}/fish/fubi/order/sendOut/${order.id}" class="btn btn-red" data-toggle="doajax" data-confirm-msg="发货">发货</a>
+	             	</td>
+             	<#else>
+             		<td> 已发货</td>
+             	</#if>
+            </tr>
+           </#list>
+        </tbody>
+    </table>
+</div>
+<div class="bjui-pageFooter">
+    <div class="pages">
+        <span>每页&nbsp;</span>
+        <div class="selectPagesize">
+            <select data-toggle="selectpicker" data-toggle-change="changepagesize">
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="120">120</option>
+                <option value="150">150</option>
+            </select>
+        </div>
+        <span>&nbsp;条，共 ${page.totalRow} 条</span>
+    </div>
+    <div class="pagination-box" data-toggle="pagination" data-total="${page.totalRow}" data-page-size="${page.pageSize}" data-page-current="${page.pageNumber}">
+    </div>
+    </

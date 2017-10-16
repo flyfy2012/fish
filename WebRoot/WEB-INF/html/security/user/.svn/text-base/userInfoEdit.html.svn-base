@@ -1,0 +1,33 @@
+<form method="post" action="${BASE_PATH}/security/user/updateInfo" data-toggle="validate">
+   	<div class="bjui-pageContent">
+        <div class="bjui-pageFormContent" layoutH="57">
+            <dl>
+                <dt>电话号码：</dt>
+                <dd><input data-rule="required" name="user.username" type="text" size="30" value="${user.username}" /></dd>
+            </dl>
+            <dl>
+                <dt>email：</dt>
+                <dd><input data-rule="required" name="user.email" type="text" size="30" value="${(user.email)}" /></dd>
+            </dl>
+            <dl>
+                <dt>真实姓名：</dt>
+                <dd><input data-rule="required" name="user.realname" type="text" size="30" value="${user.realname}" /></dd>
+            </dl>
+            <dl>
+                <dt>昵称：</dt>
+                <dd><input data-rule="required" name="user.nickname" type="text" size="30" value="${(user.nickname)}" /></dd>
+            </dl>
+             <dl>
+                <dt>年龄：</dt>
+                <dd><input data-rule="required" name="user.age" type="text" size="30" value="${(user.age)}" /></dd>
+            </dl>
+		</div>
+	</div>
+ 	<div class="bjui-pageFooter">
+    	<ul>
+	        <li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+	        <li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+   	 	</ul>
+	</div>
+</form>
+

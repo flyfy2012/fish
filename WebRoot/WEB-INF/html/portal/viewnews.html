@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" >
+<title>查看新闻</title>
+
+<style type="text/css">
+body{font-family:simsun,arial,helvetica,clean,sans-serif;margin:0;padding:0;}
+a{text-decoration:none;}
+b{display:block;height:40px;line-height:40px;width:5px;float:left;}
+.img{width:300px;margin:5px auto -15px;}
+.img img{width:300px;border-radius:5px; -webkit-border-radius: 5px; -moz-border-radius: 5px;}
+.text{background:#ffffff;}
+.header{height:4em;}
+.content{margin:0em 1em;}
+.content img{width:300px;border-radius:5px; -webkit-border-radius: 5px; -moz-border-radius: 5px;}
+p{font-size:1em;line-height:26px;}
+.little{float:right;padding-right:1em;margin-top:0px;color:#999999;}
+.like{text-align:right;}
+.favorite{background: url("${BASE_PATH}/upload/good.png") no-repeat;}
+.comments{background: url("${BASE_PATH}/upload/comment.png") no-repeat;}
+.likely{padding:0 1.5em 2.2em;}
+.likely span{position:relative;top:0;left:0.2em;}
+</style>
+
+</head>
+<body>
+
+<article>
+	<div class="img">
+ 	<img src="${BASE_PATH}/${(news.picture)!}"/>
+    </div>
+  <header class="header">
+    <h2 style="text-align:center;">${(news.title)!}</h2>
+    <t class="little">${(news.dateline)!}</t>
+  </header>
+  
+  <div class="content">
+  	<p class="text">${(news.content)!}</p>
+  </div>
+  
+  <div class="like">
+  	<span class="favorite likely"><span>${(news.favorite)!}</span></span>
+  	<span class="comments likely"><span>${(news.comments)!}</span></span>
+  </div>
+  
+</article>
+  
+</body>
+</html>

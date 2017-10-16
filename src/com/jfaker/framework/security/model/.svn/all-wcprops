@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/swust_fish/!svn/ver/421/swust_fish/src/com/jfaker/framework/security/model
+END
+TreeNode.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/model/TreeNode.java
+END
+Menu.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/model/Menu.java
+END
+Resource.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/model/Resource.java
+END
+User.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/swust_fish/!svn/ver/421/swust_fish/src/com/jfaker/framework/security/model/User.java
+END
+Role.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/model/Role.java
+END
+Org.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/model/Org.java
+END
+News.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/model/News.java
+END
+Authority.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/model/Authority.java
+END

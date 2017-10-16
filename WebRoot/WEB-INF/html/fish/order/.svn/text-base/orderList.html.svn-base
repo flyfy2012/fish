@@ -1,0 +1,78 @@
+<div class="bjui-pageHeader">
+    <form id="pagerForm" data-toggle="ajaxsearch" action="${BASE_PATH}/fish/order" method="post">
+        <input type="hidden" name="pageSize" value="${(page.pageSize)!''}">
+        <input type="hidden" name="pageNumber" value="${(page.pageCurrent)!''}">
+        <div class="bjui-searchBar">
+            <label for="goods_title">客户手机：</label>
+            <input type="text" id="goods_title" name="keyword" class="form-control" size="10" value="${(keyword)!''}"/>&nbsp;
+            <button type="submit" class="btn-default" data-icon="search">查询</button>&nbsp;
+            <a class="btn btn-orange" href="javascript:;" onclick="$(this).navtab('reloadForm', true);" data-icon="undo">清空查询</a>
+            <a class="btn btn-green" href="javascript:;" onclick="$(this).navtab('reloadForm', false);" data-icon="refresh">刷新</a>
+        </div>
+    </form>
+</div>
+<div class="bjui-pageContent tableContent">
+    <table data-toggle="tablefixed" data-width="100%" data-nowrap="true">
+        <thead>
+            <tr>
+            	<th>商品标题</th>
+				<th>订单价格</th>
+				<th>订单状态</th>
+            </tr>
+        </thead>
+        <tbody>
+			<#list page.getList() as orderPackage>
+			<tr style="border:2px solid red;">
+				<td colspan=5>
+				<p><img src="${BASE_PATH}/${(orderPackage.avatar)!}"/>${(orderPackage.nickname)!}</p>
+				<p>总价：${orderPackage.totalPrice}【<#if orderPackage.hasPostage>包邮<#else>不包邮</#if>】</p>
+				<p>商品数：${orderPackage.size}</p>
+				<p>地址：${(orderPackage.province)!}-${(orderPackage.city)!}-${(orderPackage.district)!}-${(orderPackage.street)!}</p>
+				<p>邮编：${(orderPackage.zipCode)!}</p>
+				<p>电话：${(orderPackage.tel)!}</p>
+				<p>下单时间：${orderPackage.dateline}</p>
+				</td>
+			</tr>
+				<#list orderPackage.list as order>
+				<tr>
+					<td>${order.title}</td>
+					<td>${order.price}</td>
+					<td>
+					<#if order.status==0>
+					待付款
+					<#elseif order.status==1>
+					<a href="${BASE_PATH}/fish/order/sendOut/${order.id}" class="btn btn-orange" data-toggle="doajax" data-confirm-msg="确定发货？">发货</a>
+					<#elseif order.status==2>
+					待签收
+					<#elseif order.status==3>
+					已确认收货
+					</#if>
+					<#if order.tuiStatus==1>
+					<span style="color:red;">【用户申请退款】</span>
+					<a href="${BASE_PATH}/fish/order/endRefund/${order.id}" class="btn btn-green" data-toggle="doajax" data-confirm-msg="确定完成退款？">完成退款</a>
+					<#elseif order.tuiStatus==2>
+					<span style="color:orange;">【退款成功】</span>
+					</#if>
+					</td>
+	            </tr>
+	            </#list>
+           </#list>
+        </tbody>
+    </table>
+</div>
+<div class="bjui-pageFooter">
+    <div class="pages">
+        <span>每页&nbsp;</span>
+        <div class="selectPagesize">
+            <select data-toggle="selectpicker" data-toggle-change="changepagesize">
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="120">120</option>
+                <option value="150">150</option>
+            </select>
+        </div>
+        <span>&nbsp;条，共 ${page.totalRow} 条</span>
+    </div>
+    <div class="pagination-box" data-toggle="pagination" data-total="${page.totalRow}" data-page-size="${page.pageSize}" data-page-current="${page.pageNumber}">
+    </div>
+    </div>

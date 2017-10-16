@@ -1,0 +1,43 @@
+10
+
+dir
+630
+http://code.taobao.org/svn/swust_fish/swust_fish/WebRoot/WEB-INF/html/fish/fubi
+http://code.taobao.org/svn/swust_fish
+
+
+
+2016-01-23T09:18:43.274567Z
+586
+hmilysean
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+6e3d1714-0953-4bc9-807f-994467e85a91
+
+banner
+dir
+
+limit
+dir
+
+order
+dir
+
+seckill
+dir
+
+type
+dir
+

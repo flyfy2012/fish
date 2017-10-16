@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/web/validate
+END
+AuthorityValidator.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/web/validate/AuthorityValidator.java
+END
+OrgValidator.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/web/validate/OrgValidator.java
+END
+RoleValidator.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/web/validate/RoleValidator.java
+END
+UserValidator.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/web/validate/UserValidator.java
+END
+ResourceValidator.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/web/validate/ResourceValidator.java
+END
+MenuValidator.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/jfaker/framework/security/web/validate/MenuValidator.java
+END

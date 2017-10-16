@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/swust_fish/!svn/ver/596/swust_fish/src/com/wechat/pay/tools
+END
+HttpTool.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/swust_fish/!svn/ver/589/swust_fish/src/com/wechat/pay/tools/HttpTool.java
+END
+WechatSignTools.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/swust_fish/!svn/ver/596/swust_fish/src/com/wechat/pay/tools/WechatSignTools.java
+END
+WechatConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/swust_fish/!svn/ver/596/swust_fish/src/com/wechat/pay/tools/WechatConfig.java
+END
+XmlTools.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/swust_fish/!svn/ver/589/swust_fish/src/com/wechat/pay/tools/XmlTools.java
+END
+Test.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/swust_fish/!svn/ver/589/swust_fish/src/com/wechat/pay/tools/Test.java
+END

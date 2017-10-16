@@ -1,0 +1,82 @@
+<div class="bjui-pageHeader">
+	<form id="pagerForm" data-toggle="ajaxsearch" action="${BASE_PATH}/fish/nonkeytAttr" method="post">
+		<div class="bjui-searchBar">
+			<div id="my_select">
+		      	<select name="pid_0" data-toggle="selectpicker" data-nextselect="#catid_1" data-refurl="${BASE_PATH}/fish/goodsCategory/getNext/{value}" onchange="bbb(this.value)">
+					<option value="-1">请选择</option>
+			        <#list f_list as category>
+			        	<option value="${category.id}" <#if pid_0?? &&pid_0==category.id>selected</#if>>${category.name}</option>
+			        </#list>
+				</select>
+				<#list 1..level-1 as t>
+				<select name="pid" id="catid_${t}" data-toggle="selectpicker" data-val="${(pidList[t])!'-1'}" data-emptytxt="请选择"
+					data-nextselect="#catid_${t+1}" data-refurl="${BASE_PATH}/fish/goodsCategory/getNext/{value}" onchange="bbb(this.value)">
+					<option value="-1">请选择</option>
+				</select>
+				</#list>
+		        <a class="btn btn-orange" href="javascript:;" onclick="$(this).navtab('reloadForm', true);" data-icon="undo">还原</a>     
+		        <a class="btn btn-green" href="javascript:;" onclick="$(this).navtab('reloadForm', false);" data-icon="refresh">刷新</a>
+		      	<span style="color:red;">&nbsp;（&nbsp;提示：增、删、改之后都必须点击保存数据才有效&nbsp;）</span>
+			</div>
+			
+		</div>
+	</form>
+</div>
+<div class="bjui-pageContent" >
+<#if list??>
+<form method="post" action="${BASE_PATH}/fish/nonkeytAttr/save" data-toggle="validate">
+	<table class="table" data-toggle="tabledit" data-single-noindex="true">
+    	<thead>
+     		<tr style="height:40px;text-align:left;">
+     			<th title="&nbsp;"width="1%">
+		      		<input type="hidden" name="ids" value="0" size="0">
+		      	</th>
+		      	<th title="排序" width="20%" >
+		      		<input type="text" name="displayorder" class="no" data-rule="required" value="0" size="1">
+		      	</th>
+		      	<th title="名称 " width="20%" >
+		      		<input type="text" name="names" data-rule="required" value="" size="50">
+		      	</th>
+		      	<th title="操作" width="20%" data-addtool="true">
+                	<a href="javascript:;" class="btn btn-green" data-toggle="dosave">保存</a>
+                	<a href="${BASE_PATH}/B-JUI/ajaxDone2.html" class="btn btn-red row-del" data-confirm-msg="确定要删除该行信息吗？">删</a>
+                </th>		           	
+      		</tr>
+  		</thead>
+	    <tbody>
+	    <input type="hidden" name="catId" value="${catId}"/>
+		<#list list as keyt>
+			<tr>
+				<td>${keyt.id}</td>
+				<td>${keyt.displayorder}</td>
+				<td>${(keyt.name)!}</td>
+				<td data-noedit="true">
+					<button type="button" class="btn-green" data-toggle="doedit">编辑</button>
+                    <a href="${BASE_PATH}/B-JUI/ajaxDone2.html" class="btn btn-red row-del" data-confirm-msg="确定要删除该行信息吗？">删</a>
+                </td>
+			</tr>
+		</#list>
+	</tbody>
+	</table>
+</form>
+<#else>
+不是最后一级，或者暂无数据
+</#if>
+</div>           
+<div class="bjui-pageFooter">
+    <ul>
+        <li><a class="btn btn-orange" href="javascript:;" onclick="$(this).navtab('reloadForm', true);" >取消修改</a></li>
+        <li><button type="submit" class="btn btn-red" data-icon="save">保存</button></li>
+    </ul>
+</div>
+<script>
+	function add(obj){
+		$(obj).removeAttr("data-toggle-old").attr("data-toggle","navtab");
+	}
+	
+	function bbb(v){
+		if(v!=-1){
+			$("#pagerForm").submit();
+		}
+	}
+</script>

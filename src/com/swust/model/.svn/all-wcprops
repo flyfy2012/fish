@@ -1,0 +1,215 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/swust_fish/!svn/ver/624/swust_fish/src/com/swust/model
+END
+SecretCodeModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/swust_fish/!svn/ver/328/swust_fish/src/com/swust/model/SecretCodeModel.java
+END
+HarvestPicturesModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/swust_fish/!svn/ver/282/swust_fish/src/com/swust/model/HarvestPicturesModel.java
+END
+UserCountModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/swust_fish/!svn/ver/525/swust_fish/src/com/swust/model/UserCountModel.java
+END
+MessageModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/swust_fish/!svn/ver/610/swust_fish/src/com/swust/model/MessageModel.java
+END
+AnnouncementModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/swust_fish/!svn/ver/3/swust_fish/src/com/swust/model/AnnouncementModel.java
+END
+KeytValGoodsModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/swust_fish/!svn/ver/355/swust_fish/src/com/swust/model/KeytValGoodsModel.java
+END
+NewsCommentModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/swust_fish/!svn/ver/621/swust_fish/src/com/swust/model/NewsCommentModel.java
+END
+CatNonkeytModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/swust_fish/!svn/ver/182/swust_fish/src/com/swust/model/CatNonkeytModel.java
+END
+OrderModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/swust_fish/!svn/ver/437/swust_fish/src/com/swust/model/OrderModel.java
+END
+NewsUpDownModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/swust_fish/!svn/ver/201/swust_fish/src/com/swust/model/NewsUpDownModel.java
+END
+NewsModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/swust_fish/!svn/ver/611/swust_fish/src/com/swust/model/NewsModel.java
+END
+TeamBuyUserModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/swust_fish/!svn/ver/543/swust_fish/src/com/swust/model/TeamBuyUserModel.java
+END
+GoodsPicModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/swust_fish/!svn/ver/258/swust_fish/src/com/swust/model/GoodsPicModel.java
+END
+FubiModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/swust_fish/!svn/ver/152/swust_fish/src/com/swust/model/FubiModel.java
+END
+GoodsModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/swust_fish/!svn/ver/368/swust_fish/src/com/swust/model/GoodsModel.java
+END
+OrderPackageModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/swust_fish/!svn/ver/495/swust_fish/src/com/swust/model/OrderPackageModel.java
+END
+LimitGoodsModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/swust_fish/!svn/ver/585/swust_fish/src/com/swust/model/LimitGoodsModel.java
+END
+UserFollowModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/swust_fish/!svn/ver/610/swust_fish/src/com/swust/model/UserFollowModel.java
+END
+FubiBannerModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/swust_fish/!svn/ver/608/swust_fish/src/com/swust/model/FubiBannerModel.java
+END
+NewsReportModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/swust_fish/!svn/ver/523/swust_fish/src/com/swust/model/NewsReportModel.java
+END
+SeckillGoodsModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/swust_fish/!svn/ver/584/swust_fish/src/com/swust/model/SeckillGoodsModel.java
+END
+GoodsCountMonthModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/swust_fish/!svn/ver/190/swust_fish/src/com/swust/model/GoodsCountMonthModel.java
+END
+FubidetailModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/swust_fish/!svn/ver/116/swust_fish/src/com/swust/model/FubidetailModel.java
+END
+LimitTimeModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/swust_fish/!svn/ver/500/swust_fish/src/com/swust/model/LimitTimeModel.java
+END
+ShoppingCartModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/swust_fish/!svn/ver/624/swust_fish/src/com/swust/model/ShoppingCartModel.java
+END
+EmailCodeModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/swust_fish/!svn/ver/326/swust_fish/src/com/swust/model/EmailCodeModel.java
+END
+TeamBuyModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/swust_fish/!svn/ver/429/swust_fish/src/com/swust/model/TeamBuyModel.java
+END
+HarvestModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/swust_fish/!svn/ver/611/swust_fish/src/com/swust/model/HarvestModel.java
+END
+CatKeytModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/swust_fish/!svn/ver/126/swust_fish/src/com/swust/model/CatKeytModel.java
+END
+NewsCategoryModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/swust_fish/!svn/ver/30/swust_fish/src/com/swust/model/NewsCategoryModel.java
+END
+AddressModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/swust_fish/!svn/ver/381/swust_fish/src/com/swust/model/AddressModel.java
+END
+GoodsCategoryModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/swust_fish/!svn/ver/107/swust_fish/src/com/swust/model/GoodsCategoryModel.java
+END
+CatNonkeytValModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/swust_fish/!svn/ver/258/swust_fish/src/com/swust/model/CatNonkeytValModel.java
+END
+CatKeytValModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/swust_fish/!svn/ver/182/swust_fish/src/com/swust/model/CatKeytValModel.java
+END
+HarvestCommentModel.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/swust_fish/!svn/ver/522/swust_fish/src/com/swust/model/HarvestCommentModel.java
+END

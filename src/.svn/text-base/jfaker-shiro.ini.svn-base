@@ -1,0 +1,63 @@
+[main]
+authc.loginUrl=/admin/login
+user.loginUrl=/admin/login
+#realm
+myRealm = com.jfaker.framework.security.shiro.ShiroAuthorizingRealm
+securityManager.realm = $myRealm
+
+#cache
+shiroCacheManager = org.apache.shiro.cache.ehcache.EhCacheManager
+shiroCacheManager.cacheManagerConfigFile = classpath:ehcache-shiro.xml
+securityManager.cacheManager = $shiroCacheManager
+
+#session
+#sessionDAO = org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO
+#sessionManager = org.apache.shiro.web.session.mgt.DefaultWebSessionManager
+#sessionDAO.activeSessionsCacheName = shiro-activeSessionCache
+#sessionManager.sessionDAO = $sessionDAO
+#securityManager.sessionManager = $sessionManager
+##timeout 30 minutes = 1800000 millisecond
+#securityManager.sessionManager.globalSessionTimeout = 60000
+#mySessionListener = net.fengyoutian.listener.WebSessionListener
+#securityManager.sessionManager.sessionListeners = $mySessionListener
+
+[urls]
+
+#前台展示，无需权限
+/ = anon
+/web/register/**= anon
+/queRenEmail = anon
+/viewNews = anon
+
+#进入登录界面可以匿名
+/login=anon
+/logout = logout
+/security/user/dologin/**=anon
+/security/user/captcha = anon
+
+	#手机端用户登录
+#	/api/user/userLogin/** = anon
+#	/api/user/qqLogin/** = anon
+#	/api/user/wechatLogin/** = anon
+#	/api/user/weiboLogin/** = anon
+
+/api/** = anon
+	#注册
+#	/api/user/reg/** = anon
+#	/api/user/checkTel/** = anon
+	#短信验证码
+#	/api/user/sendCheckCode/** = anon
+#	/api/user/checkCode/** = anon
+	#第三方绑定
+#	/api/user/qqBind/** = anon
+#	/api/user/weiboBind/** = anon
+#	/api/user/wechatBind/** = anon
+	
+	#邮箱验证
+#	/api/user/queRenEmail/** = anon
+
+/upload/** = anon
+/B-JUI/**=anon
+/portal/** = anon
+
+

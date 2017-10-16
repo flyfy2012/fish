@@ -1,0 +1,38 @@
+<form id="pagerForm" method="post" action="${BASE_PATH}/security/resource/add">
+    <input type="hidden" name="pageNum" value="${(param.pageNumShown)!}" />
+    <input type="hidden" name="numPerPage" value="${(param.numPerPage)!}" />
+</form>
+<div class="pageContent">
+  <form method="post" action="${BASE_PATH}/security/resource/save" data-toggle="validate" >
+          <dl>
+				<dt>资源名:</dt>
+				<dd>
+					<input id="resourceName" data-rule="required"  name="resource.name"
+						type="text" size="30" value="${(resource.name)!}" />
+				</dd>
+			</dl>
+			<dl class="nowrap">
+				<dt>资源值:</dt>
+				<dd>
+					<input id="resourceSource" type="text" data-rule="required" 
+						name="resource.source" size="30" value="${(resource.source)!}" />
+				</dd>
+			</dl>
+			<dl class="nowrap">
+				<dt>菜单名称:</dt>
+				<dd><label>PID:</label><input type="hidden" name="pid" size="5"/>
+						<label>查找名称：</label><input type="text" data-toggle="lookup" 
+						data-url="${BASE_PATH}/security/menu?lookup_fromresource=1" name="pname"  size="10" />
+				</dd>
+			</dl>
+			 <div class="bjui-pageFooter">
+    <ul>
+        <li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+        <li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+    </ul>
+	</div>
+    </form>
+</div>
+       
+
+
